@@ -1,0 +1,15 @@
+.terms-dashboard-container {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    background-color: black;
+}
+
+.resize-line {
+    position: relative;
+    top: 5%;
+    left: 0%;
+    background-color: darkslategray;
+    width: 2px;
+    height: 90%;
+}

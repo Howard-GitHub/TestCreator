@@ -1,4 +1,3 @@
-import './App.css';
 import GeneralDashboard from './pages/GeneralDashboard';
 
 function App() {
