@@ -22,7 +22,7 @@ const SectionsDashboard = () => {
                                 key={section.id}
                                 id={section.id}
                             />
-                    ))}
+                        ))}
                 </div>
             </div>
         </div>
