@@ -1,10 +1,13 @@
 import './AddButton.css';
 
-const AddButton = ({type}) => {
+const AddButton = ({type, handleOnClickAddItem, arrayOfSectionsLength}) => {
     return (  
         <div className={`add-button-container-${type}`}>
             {type === "section" ? (
-                <button className="add-button-section">
+                <button 
+                    className="add-button-section"
+                    onClick={handleOnClickAddItem}
+                >
                     Add Section
                 </button>
             ) : (

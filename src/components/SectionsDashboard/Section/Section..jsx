@@ -1,6 +1,6 @@
 import './Section.css';
 
-const Section = () => {
+const Section = ({id}) => {
     return (  
         <div className="section-container">
             <div className="section">

@@ -1,17 +1,22 @@
 .add-button-container-section {
-    padding-bottom: 30px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 43);
+    height: 60px;
+    width: 100%;
+    z-index: 1;
 }
 
 .add-button-section {
     position: relative;
     background-color: darkblue;
     color: white;
+    cursor: pointer;
     font-size: 11px;
     height: 30px;
     width: 100px;
     border-radius: 15px;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, 0%);
     border: 1px solid black;
 }
