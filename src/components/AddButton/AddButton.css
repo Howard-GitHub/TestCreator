@@ -1,7 +1,12 @@
+.add-button-container-section {
+    padding-bottom: 30px;
+}
+
 .add-button-section {
     position: relative;
     background-color: darkblue;
     color: white;
+    font-size: 11px;
     height: 30px;
     width: 100px;
     border-radius: 15px;
