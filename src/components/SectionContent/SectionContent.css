@@ -5,8 +5,18 @@
     background-color: black;
 }
 
-.resize-line {
+.section-content {
     position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: rgb(23, 23, 23);
+    width: 90%;
+    border-radius: 20px;
+}
+
+.resize-line {
+    position: absolute;
     top: 2%;
     left: 0%;
     background-color: darkslategray;

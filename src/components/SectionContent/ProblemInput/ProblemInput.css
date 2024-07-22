@@ -1,0 +1,13 @@
+.problem-input-container {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.problem-input {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 270px;
+    border-radius: 20px;
+}

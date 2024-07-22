@@ -1,0 +1,11 @@
+.answer-input {
+    position: relative;
+    resize: none;
+    border: 1px solid darkslategray;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: rgb(23, 23, 23);
+    width: 90%;
+    height: 30px;
+}
