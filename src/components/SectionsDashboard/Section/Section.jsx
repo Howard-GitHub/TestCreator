@@ -12,7 +12,7 @@ const Section = ({id, setSectionId}) => {
                 className="section"
                 onClick={handleClickEnterSection}
             >
-                {id}
+                section
             </div>
         </div>
     );

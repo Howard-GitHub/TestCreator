@@ -5,7 +5,7 @@ import './SectionsDashboard.css';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 
 const SectionsDashboard = ({setSectionId}) => {
-    const [arrayOfSections, setArrayOfSections] = useState([]);
+    const [arrayOfSections, setArrayOfSections] = useState(null);
     const {handleClickAddItem} = useLocalStoredArray("sectionsDashboard", arrayOfSections, setArrayOfSections);
 
     return (  
@@ -17,12 +17,13 @@ const SectionsDashboard = ({setSectionId}) => {
                 />
                 <div className="sections-dashboard__sections-container">
                     <div className="sections-dashboard__sections-container__gap"/>
-                        {arrayOfSections.map((section) => (
-                            <Section
-                                key={section.id}
-                                id={section.id}
-                                setSectionId={setSectionId}
-                            />
+                        {(arrayOfSections !== null) &&
+                            arrayOfSections.map((section) => (
+                                <Section
+                                    key={section.id}
+                                    id={section.id}
+                                    setSectionId={setSectionId}
+                                />
                         ))}
                 </div>
             </div>

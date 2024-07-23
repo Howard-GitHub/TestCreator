@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import ProblemInput from './ProblemInput/ProblemInput';
 import './SectionContent.css'
 import TitleInput from './TitleInput/TitleInput';
@@ -7,14 +7,9 @@ import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 
 
 const SectionContent = ({sectionId}) => {
-    const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState([]);
+    const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const [title, setTitle] = useState(null);
     const {handleClickAddItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
-
-    useEffect(() => {
-        console.log("use effect", arrayOfProblemInputs);
-    }, [arrayOfProblemInputs])
-
 
     return (  
         <div className="section-content-container">
@@ -26,11 +21,12 @@ const SectionContent = ({sectionId}) => {
                 handleClickAddItem={handleClickAddItem}
             />
             <div className="section-content">
-                {arrayOfProblemInputs.map((problemInput) => (
-                    <ProblemInput
-                        key={problemInput.id}
-                        id={problemInput.id}
-                    />
+                {(arrayOfProblemInputs !== null) &&
+                    arrayOfProblemInputs.map((problemInput) => (
+                        <ProblemInput
+                            key={problemInput.id}
+                            id={problemInput.id}
+                        />
                 ))}
             </div>
             <div className="resize-line"/>

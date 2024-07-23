@@ -10,11 +10,16 @@ const useLocalStoredArray = (localKey, arrayOfItems, setArrayOfItems) => {
         if ((localStoredArray !== null) && (localStoredArray !== "[]")) {
             setArrayOfItems(JSON.parse(localStoredArray));
         }
-    }, [])
+        else {
+            setArrayOfItems([]);
+        }
+    }, [localKey])
 
     // Saves changes in the local storage whenever the array is modified
     useEffect(() => {
-        localStorage.setItem(localKey, JSON.stringify(arrayOfItems));
+        if (arrayOfItems !== null) {
+            localStorage.setItem(localKey, JSON.stringify(arrayOfItems));
+        }
     }, [arrayOfItems])
 
     // Adds a new item to the array
