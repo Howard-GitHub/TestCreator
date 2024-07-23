@@ -2,17 +2,20 @@ import './AddButton.css';
 
 const AddButton = ({type, handleClickAddItem}) => {
     return (  
-        <div className={`add-button-container-${type}`}>
+        <div className={`add-button-container add-button-container--${type}`}>
             {type === "section" ? (
                 <button 
-                    className="add-button-section"
+                    className="add-button add-button--section"
                     onClick={handleClickAddItem}
                 >
                     Add Section
                 </button>
             ) : (
-                <button className="add-button-term">
-                    Add Term
+                <button 
+                    className="add-button add-button--problem"
+                    onClick={handleClickAddItem}
+                >
+                    +
                 </button>
             )}
         </div>

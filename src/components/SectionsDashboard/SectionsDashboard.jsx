@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import AddButton from '../AddButton/AddButton';
-import Section from './Section/Section.';
+import Section from './Section/Section';
 import './SectionsDashboard.css';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 
-const SectionsDashboard = () => {
+const SectionsDashboard = ({setSectionId}) => {
     const [arrayOfSections, setArrayOfSections] = useState([]);
     const {handleClickAddItem} = useLocalStoredArray("sectionsDashboard", arrayOfSections, setArrayOfSections);
 
@@ -21,6 +21,7 @@ const SectionsDashboard = () => {
                             <Section
                                 key={section.id}
                                 id={section.id}
+                                setSectionId={setSectionId}
                             />
                         ))}
                 </div>

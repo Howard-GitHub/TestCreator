@@ -1,4 +1,8 @@
-.add-button-container-section {
+.add-button {
+    z-index: 1;
+}
+
+.add-button-container--section {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -6,17 +10,32 @@
     background-color: rgb(0, 0, 43);
     height: 60px;
     width: 100%;
-    z-index: 1;
 }
 
-.add-button-section {
+.add-button--section {
     position: relative;
     background-color: darkblue;
     color: white;
     cursor: pointer;
+    border: 1px solid black;
     font-size: 11px;
     height: 30px;
     width: 100px;
     border-radius: 15px;
-    border: 1px solid black;
+}
+
+
+.add-button--problem {
+    position: relative;
+    background-color: darkblue;
+    cursor: pointer;
+    border: 2px solid black;
+    top: 15px;
+    color: rgb(168, 168, 168);
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 100px;
+    font-size: 30px;
 }

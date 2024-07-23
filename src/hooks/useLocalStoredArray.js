@@ -23,6 +23,7 @@ const useLocalStoredArray = (localKey, arrayOfItems, setArrayOfItems) => {
             id: uuidv4()
         }
         setArrayOfItems([...arrayOfItems, uniqueIdentifier]);
+        console.log("running", arrayOfItems);
     }
 
     return {
