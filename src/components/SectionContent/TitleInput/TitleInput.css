@@ -1,6 +1,6 @@
 .title-input-container {
     position: relative;
-    height: 100px;
+    height: 140px;
     width: 100%;
     background-color: rgb(23, 23, 23);
 }
@@ -10,7 +10,7 @@
     background-color: transparent;
     resize: none;
     border: 1px solid darkslategray;
-    top: 50%;
+    top: 85px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;

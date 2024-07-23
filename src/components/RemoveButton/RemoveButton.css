@@ -1,0 +1,11 @@
+.remove-button--section {
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(172, 0, 0);
+    border-radius: 5px;
+    font-size: 13px;
+}

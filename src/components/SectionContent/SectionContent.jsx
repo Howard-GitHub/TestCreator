@@ -4,6 +4,7 @@ import './SectionContent.css'
 import TitleInput from './TitleInput/TitleInput';
 import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
+import RemoveButton from '../RemoveButton/RemoveButton';
 
 
 const SectionContent = ({sectionId}) => {
@@ -16,6 +17,8 @@ const SectionContent = ({sectionId}) => {
             <TitleInput
                 title={title}
             />
+            <RemoveButton/>
+
             <AddButton
                 type={"problem"}
                 handleClickAddItem={handleClickAddItem}
