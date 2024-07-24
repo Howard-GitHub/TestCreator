@@ -9,3 +9,14 @@
     border-radius: 5px;
     font-size: 13px;
 }
+
+.remove-button--problem-input {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: lightgray;
+    cursor: pointer;
+    font-size: 20px;
+    top: 10px;
+    right: 15px;
+}

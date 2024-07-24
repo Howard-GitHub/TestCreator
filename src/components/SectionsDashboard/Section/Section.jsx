@@ -1,9 +1,10 @@
 import './Section.css';
 
-const Section = ({id, setSectionId}) => {
+const Section = ({id, setSectionId, setSectionIsSelected}) => {
 
     const handleClickEnterSection = () => {
         setSectionId(id);
+        setSectionIsSelected(true);
     }
 
     return (  

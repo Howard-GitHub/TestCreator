@@ -6,34 +6,46 @@ import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
 
-const SectionContent = ({sectionId, handleClickRemoveItem}) => {
+const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const [title, setTitle] = useState(null);
-    const {handleClickAddItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
+    const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
+
 
     return (  
         <div className="section-content-container">
-            <TitleInput
-                title={title}
-            />
-            <RemoveButton
-                type={"section"}
-                handleClickRemoveItem={handleClickRemoveItem}
-                sectionId={sectionId}
-            />
-            <AddButton
-                type={"problem"}
-                handleClickAddItem={handleClickAddItem}
-            />
-            <div className="section-content">
-                {(arrayOfProblemInputs !== null) &&
-                    arrayOfProblemInputs.map((problemInput) => (
-                        <ProblemInput
-                            key={problemInput.id}
-                            id={problemInput.id}
-                        />
-                ))}
-            </div>
+            {(sectionIsSelected) ? (
+                <>
+                    <TitleInput
+                        title={title}
+                    />
+                    <RemoveButton
+                        type={"section"}
+                        handleClickRemoveItem={handleClickRemoveSection}
+                        setArrayOfProblemInputs={setArrayOfProblemInputs}
+                        setSectionIsSelected={setSectionIsSelected}
+                        id={sectionId}
+                    />
+                    <AddButton
+                        type={"problem"}
+                        handleClickAddItem={handleClickAddItem}
+                    />
+                    <div className="section-content">
+                        {(arrayOfProblemInputs !== null) &&
+                            arrayOfProblemInputs.map((problemInput) => (
+                                <ProblemInput
+                                    key={problemInput.id}
+                                    problemInputId={problemInput.id}
+                                    handleClickRemoveProblemInput={handleClickRemoveItem}
+                                />
+                        ))}
+                    </div>
+                </>
+            ) : (
+                <div className="choose-section-page">
+                    Choose a Section
+                </div>
+            )}
             <div className="resize-line"/>
         </div>
     );
