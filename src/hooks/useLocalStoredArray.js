@@ -31,8 +31,16 @@ const useLocalStoredArray = (localKey, arrayOfItems, setArrayOfItems) => {
         console.log("running", arrayOfItems);
     }
 
+    // Removes an item from the array
+    const handleClickRemoveItem = (id) => {
+        const newArray = arrayOfItems.filter((item) => item.id !== id);
+        setArrayOfItems(newArray);
+        console.log("runs", arrayOfItems);
+    }
+
     return {
-        handleClickAddItem
+        handleClickAddItem,
+        handleClickRemoveItem
     };
 }
  

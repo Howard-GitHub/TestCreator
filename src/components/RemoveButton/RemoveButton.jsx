@@ -1,9 +1,12 @@
 import './RemoveButton.css';
 
-const RemoveButton = ({type}) => {
+const RemoveButton = ({type, handleClickRemoveItem, sectionId}) => {
     return (  
         <div className={`remove-button-container--${type}`}>
-            <button className="remove-button--section">
+            <button 
+                className="remove-button--section"
+                onClick={() => handleClickRemoveItem(sectionId)}
+            >
                 Remove Section
             </button>
         </div>
