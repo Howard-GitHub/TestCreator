@@ -5,21 +5,17 @@ import TitleInput from './TitleInput/TitleInput';
 import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
-import useLocalStoredText from '../../hooks/useLocalStoredText';
 
 const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
-    const [title, setTitle] = useState("");
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
-    const {handleChangeTextarea} = useLocalStoredText(sectionId, title, setTitle);
 
     return (  
         <div className="section-content-container">
             {(sectionIsSelected) ? (
                 <>
                     <TitleInput
-                        title={title}
-                        handleChangeTitle={handleChangeTextarea}
+                        sectionId={sectionId}
                     />
                     <RemoveButton
                         type={"section"}
