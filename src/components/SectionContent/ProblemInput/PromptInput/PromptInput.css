@@ -1,6 +1,8 @@
 .prompt-input {
     position: relative;
     resize: none;
+    outline: none;
+    color: white;
     border: 1px solid darkslategray;
     top: 40px;
     left: 50%;
@@ -8,4 +10,5 @@
     background-color: rgb(23, 23, 23);
     width: 90%;
     height: 150px;
+    font-size: 14px;
 }

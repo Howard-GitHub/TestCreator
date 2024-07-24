@@ -9,10 +9,14 @@
     position: relative;
     background-color: transparent;
     resize: none;
+    color: white;
+    outline: none;
     border: 1px solid darkslategray;
     top: 85px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
     height: 45px;
+    font-size: 30px;
+    padding-top: 7px;
 }
