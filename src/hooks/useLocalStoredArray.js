@@ -28,14 +28,18 @@ const useLocalStoredArray = (localKey, arrayOfItems, setArrayOfItems) => {
             id: uuidv4()
         }
         setArrayOfItems([...arrayOfItems, uniqueIdentifier]);
-        console.log("running", arrayOfItems);
     }
 
     // Removes an item from the array
-    const handleClickRemoveItem = (id) => {
+    const handleClickRemoveItem = (type, id) => {
+        if (type === "section") {
+            const localKey = id;
+            localStorage.removeItem(localKey);
+        }
+
+
         const newArray = arrayOfItems.filter((item) => item.id !== id);
         setArrayOfItems(newArray);
-        console.log("runs", arrayOfItems);
     }
 
     return {

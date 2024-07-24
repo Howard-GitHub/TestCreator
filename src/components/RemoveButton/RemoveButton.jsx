@@ -5,7 +5,7 @@ const RemoveButton = ({type, handleClickRemoveItem, sectionId}) => {
         <div className={`remove-button-container--${type}`}>
             <button 
                 className="remove-button--section"
-                onClick={() => handleClickRemoveItem(sectionId)}
+                onClick={() => handleClickRemoveItem(type, sectionId)}
             >
                 Remove Section
             </button>
