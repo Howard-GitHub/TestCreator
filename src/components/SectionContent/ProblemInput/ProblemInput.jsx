@@ -7,7 +7,9 @@ const ProblemInput = ({problemInputId, handleClickRemoveProblemInput}) => {
     return (  
         <div className="problem-input-container">
             <div className="problem-input">
-                <AnswerInput/>
+                <AnswerInput
+                    problemInputId={problemInputId}
+                />
                 <PromptInput/>
             </div>
             <RemoveButton

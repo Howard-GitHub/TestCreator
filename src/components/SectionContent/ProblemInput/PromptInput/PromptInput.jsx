@@ -1,6 +1,6 @@
 import './PromptInput.css';
 
-const PromptInput = () => {
+const PromptInput = ({}) => {
     return (  
         <div className="prompt-input-container">
             <textarea 
