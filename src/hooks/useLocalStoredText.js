@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-const useLocalStoredText = (sectionId, type, text, setText) => {
+const useLocalStoredText = (id, type, text, setText) => {
 
     /* 
        This variable checks the number of times the useEffect retrieving the text from the local 
@@ -11,7 +11,7 @@ const useLocalStoredText = (sectionId, type, text, setText) => {
 
     // Retrieves the text stored in the local storage
     useEffect(() => {
-        const localKey = type + sectionId 
+        const localKey = type + id 
         const locallyStoredText = localStorage.getItem(localKey);
 
         if (locallyStoredText) {
@@ -23,11 +23,11 @@ const useLocalStoredText = (sectionId, type, text, setText) => {
             numTimesRun = 0;
         }
         
-    }, [sectionId])
+    }, [id])
 
     // Saves changes made to the text in the local storage
     useEffect(() => {
-        const localKey = type + sectionId 
+        const localKey = type + id 
 
         console.log("before", localStorage.getItem(localKey))
         localStorage.setItem(localKey, text);
