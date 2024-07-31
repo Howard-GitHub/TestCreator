@@ -1,8 +1,10 @@
 .section-content-container {
     position: relative;
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: auto;
     width: 70%;
     height: 100%;
-    background-color: black;
 }
 
 .section-content {
@@ -29,9 +31,9 @@
 }
 
 .resize-line {
-    position: absolute;
+    position: fixed;
     top: 2%;
-    left: 0%;
+    left: 30%;
     background-color: darkslategray;
     width: 2px;
     height: 96%;
