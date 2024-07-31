@@ -3,9 +3,8 @@ import AddButton from '../AddButton/AddButton';
 import Section from './Section/Section';
 import './SectionsDashboard.css';
 
-const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected, sectionTitle}) => {
-
-    const [selectedSectionRef, setSelectedSectionRef] = useState(null);
+const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected, sectionTitle,
+                            selectedSectionRef, setSelectedSectionRef}) => {
 
     return (  
         <div className="sections-dashboard-container">

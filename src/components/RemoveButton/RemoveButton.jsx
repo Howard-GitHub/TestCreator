@@ -1,12 +1,12 @@
 import './RemoveButton.css';
 
-const RemoveButton = ({type, handleClickRemoveItem, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle, id}) => {
+const RemoveButton = ({type, handleClickRemoveItem, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle, setSelectedSectionRef, id}) => {
     return (  
         <div className={`remove-button-container--${type}`}>
             {(type === "section") ? (
                 <button 
                     className="remove-button--section"
-                    onClick={() => handleClickRemoveItem(type, id, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle)}
+                    onClick={() => handleClickRemoveItem(type, id, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle, setSelectedSectionRef)}
                 >
                     Remove Section
                 </button>

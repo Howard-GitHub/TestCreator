@@ -31,13 +31,15 @@ const useLocalStoredArray = (localKey, arrayOfItems, setArrayOfItems) => {
     }
 
     // Removes an item from the array
-    const handleClickRemoveItem = (type, id, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle) => {
+    const handleClickRemoveItem = (type, id, setArrayOfProblemInputs, setSectionIsSelected, setSectionTitle, setSelectedSectionRef) => {
         if (type === "section") {
             const sectionLocalKey = id;
             localStorage.removeItem(sectionLocalKey);
             setArrayOfProblemInputs(null);
             setSectionIsSelected(false);
             setSectionTitle("");
+            setSectionIsSelected(null);
+            setSelectedSectionRef(null);
         }
 
         const newArray = arrayOfItems.filter((item) => item.id !== id);
