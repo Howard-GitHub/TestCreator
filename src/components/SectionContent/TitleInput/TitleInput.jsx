@@ -1,17 +1,15 @@
-import {useState} from 'react';
 import './TitleInput.css';
 import useLocalStoredText from '../../../hooks/useLocalStoredText';
 
-const TitleInput = ({sectionId}) => {
+const TitleInput = ({sectionId, sectionTitle, setSectionTitle}) => {
 
-    const [title, setTitle] = useState("");
-    const {handleChangeTextarea} = useLocalStoredText(sectionId, "title", title, setTitle);
+    const {handleChangeTextarea} = useLocalStoredText(sectionId, "title", sectionTitle, setSectionTitle);
 
     return (  
         <div className="title-input-container">
             <textarea 
                 className="title-input"
-                value={title}
+                value={sectionTitle}
                 onChange={handleChangeTextarea}
             />
         </div>

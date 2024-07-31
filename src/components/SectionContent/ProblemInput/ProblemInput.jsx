@@ -10,7 +10,9 @@ const ProblemInput = ({problemInputId, handleClickRemoveProblemInput}) => {
                 <AnswerInput
                     problemInputId={problemInputId}
                 />
-                <PromptInput/>
+                <PromptInput
+                    problemInputId={problemInputId}
+                />
             </div>
             <RemoveButton
                 type={"problem-input"}

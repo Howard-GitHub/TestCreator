@@ -10,6 +10,7 @@ const AnswerInput = ({problemInputId}) => {
         <div className="answer-input-container">
             <textarea 
                 className="answer-input"
+                value={answerInput}
                 onChange={handleChangeTextarea}
             />
         </div>

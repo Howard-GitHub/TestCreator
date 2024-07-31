@@ -11,7 +11,7 @@ const useLocalStoredText = (id, type, text, setText) => {
 
     // Retrieves the text stored in the local storage
     useEffect(() => {
-        const localKey = type + id 
+        const localKey = type + id;
         const locallyStoredText = localStorage.getItem(localKey);
 
         if (locallyStoredText) {
@@ -22,17 +22,12 @@ const useLocalStoredText = (id, type, text, setText) => {
             setText("");
             numTimesRun = 0;
         }
-        
     }, [id])
 
     // Saves changes made to the text in the local storage
     useEffect(() => {
         const localKey = type + id 
-
-        console.log("before", localStorage.getItem(localKey))
         localStorage.setItem(localKey, text);
-        console.log("after", localStorage.getItem(localKey))
-
     }, [text])
 
     // Updates the value of the argument passed

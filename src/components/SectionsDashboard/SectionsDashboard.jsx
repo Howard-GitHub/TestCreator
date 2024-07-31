@@ -2,7 +2,7 @@ import AddButton from '../AddButton/AddButton';
 import Section from './Section/Section';
 import './SectionsDashboard.css';
 
-const SectionsDashboard = ({setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected}) => {
+const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected, sectionTitle, setSectionTitle}) => {
 
     return (  
         <div className="sections-dashboard-container">
@@ -11,17 +11,21 @@ const SectionsDashboard = ({setSectionId, handleClickAddSection, arrayOfSections
                     type={"section"}
                     handleClickAddItem={handleClickAddSection}
                 />
-                <div className="sections-dashboard__sections-container">
-                    <div className="sections-dashboard__sections-container__gap"/>
-                        {(arrayOfSections !== null) &&
-                            arrayOfSections.map((section) => (
-                                <Section
-                                    key={section.id}
-                                    id={section.id}
-                                    setSectionId={setSectionId}
-                                    setSectionIsSelected={setSectionIsSelected}
-                                />
-                        ))}
+            <div className="sections-dashboard__sections-container">
+                <div className="sections-dashboard__sections-container__gap"/>
+                    {(arrayOfSections !== null) &&
+                        arrayOfSections.map((section) => (
+                            <Section
+                                key={section.id}
+                                id={section.id}
+                                sectionId={sectionId}
+                                setSectionId={setSectionId}
+                                setSectionIsSelected={setSectionIsSelected}
+                                sectionTitle={sectionTitle}
+                                setSectionTitle={setSectionTitle}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </div>

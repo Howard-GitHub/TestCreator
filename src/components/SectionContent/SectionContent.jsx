@@ -6,23 +6,26 @@ import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
 
-const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected}) => {
+const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
 
     return (  
         <div className="section-content-container">
+            <TitleInput
+                sectionId={sectionId}
+                sectionTitle={sectionTitle}
+                setSectionTitle={setSectionTitle}
+            />
             {(sectionIsSelected) ? (
                 <>
-                    <TitleInput
-                        sectionId={sectionId}
-                    />
                     <RemoveButton
                         type={"section"}
                         handleClickRemoveItem={handleClickRemoveSection}
                         setArrayOfProblemInputs={setArrayOfProblemInputs}
                         setSectionIsSelected={setSectionIsSelected}
                         id={sectionId}
+                        setSectionTitle={setSectionTitle}
                     />
                     <AddButton
                         type={"problem"}

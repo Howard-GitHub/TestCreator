@@ -1,11 +1,29 @@
+import {useEffect, useState} from 'react';
 import './Section.css';
 
-const Section = ({id, setSectionId, setSectionIsSelected}) => {
+const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitle}) => {
+
+    const [title, setTitle] = useState("");
 
     const handleClickEnterSection = () => {
         setSectionId(id);
         setSectionIsSelected(true);
     }
+
+    useEffect(() => {
+        const localKey = "title" + id;
+        const locallyStoredText = localStorage.getItem(localKey);
+
+        if (locallyStoredText) {
+            setTitle(locallyStoredText);
+        }
+    }, [])
+
+    useEffect(() => {
+        if (id === sectionId) {
+            setTitle(sectionTitle);
+        }
+    }, [sectionTitle])
 
     return (  
         <div className="section-container">
@@ -13,7 +31,7 @@ const Section = ({id, setSectionId, setSectionIsSelected}) => {
                 className="section"
                 onClick={handleClickEnterSection}
             >
-                section
+                {title}
             </div>
         </div>
     );
