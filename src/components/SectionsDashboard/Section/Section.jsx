@@ -1,21 +1,13 @@
 import {useEffect, useState, useRef} from 'react';
 import './Section.css';
+import {handleClickEnterSection} from '../../../utils/SectionUtils';
 
 const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitle, selectedSectionRef, setSelectedSectionRef}) => {
 
     const [title, setTitle] = useState("");
-    const sectionRef = useRef();
+    const sectionRef = useRef(null);
 
-    const handleClickEnterSection = () => {
-        setSectionId(id);
-        setSectionIsSelected(true);
-        if (selectedSectionRef) {
-            selectedSectionRef.current.style.backgroundColor = "black";
-        }
-        sectionRef.current.style.backgroundColor = "darkslategray";
-        setSelectedSectionRef(sectionRef);
-    }
-
+    // Retrieves the title from the local storage
     useEffect(() => {
         const localKey = "title" + id;
         const locallyStoredText = localStorage.getItem(localKey);
@@ -25,6 +17,7 @@ const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitl
         }
     }, [])
 
+    // Changes the title of the section if the user edits the title input
     useEffect(() => {
         if (id === sectionId) {
             setTitle(sectionTitle);
@@ -36,7 +29,7 @@ const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitl
             <div 
                 className="section"
                 ref={sectionRef}
-                onClick={handleClickEnterSection}
+                onClick={() => handleClickEnterSection(id, setSectionId, setSectionIsSelected, sectionRef, selectedSectionRef, setSelectedSectionRef)}
             >
                 {title}
             </div>
