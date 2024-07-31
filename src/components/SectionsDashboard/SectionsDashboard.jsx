@@ -1,8 +1,11 @@
+import {useState} from 'react';
 import AddButton from '../AddButton/AddButton';
 import Section from './Section/Section';
 import './SectionsDashboard.css';
 
-const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected, sectionTitle, setSectionTitle}) => {
+const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arrayOfSections, setSectionIsSelected, sectionTitle}) => {
+
+    const [selectedSectionRef, setSelectedSectionRef] = useState(null);
 
     return (  
         <div className="sections-dashboard-container">
@@ -22,7 +25,8 @@ const SectionsDashboard = ({sectionId, setSectionId, handleClickAddSection, arra
                                 setSectionId={setSectionId}
                                 setSectionIsSelected={setSectionIsSelected}
                                 sectionTitle={sectionTitle}
-                                setSectionTitle={setSectionTitle}
+                                selectedSectionRef={selectedSectionRef}
+                                setSelectedSectionRef={setSelectedSectionRef}
                             />
                         ))
                     }

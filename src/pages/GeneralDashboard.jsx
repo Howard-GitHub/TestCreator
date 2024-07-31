@@ -8,7 +8,7 @@ const GeneralDashboard = () => {
     const [sectionId, setSectionId] = useState(null);
     const [arrayOfSections, setArrayOfSections] = useState(null);
     const [sectionIsSelected, setSectionIsSelected] = useState(false);
-    const [sectionTitle, setSectionTitle] = useState("")
+    const [sectionTitle, setSectionTitle] = useState("");
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray("sectionsDashboard", arrayOfSections, setArrayOfSections);
     
     return (  
@@ -22,7 +22,6 @@ const GeneralDashboard = () => {
                 setArrayOfSections={setArrayOfSections}
                 setSectionIsSelected={setSectionIsSelected}
                 sectionTitle={sectionTitle}
-                setSectionTitle={setSectionTitle}
             />
             <SectionContent
                 sectionId={sectionId}

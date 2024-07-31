@@ -1,13 +1,19 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import './Section.css';
 
-const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitle}) => {
+const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitle, selectedSectionRef, setSelectedSectionRef}) => {
 
     const [title, setTitle] = useState("");
+    const sectionRef = useRef();
 
     const handleClickEnterSection = () => {
         setSectionId(id);
         setSectionIsSelected(true);
+        if (selectedSectionRef) {
+            selectedSectionRef.current.style.backgroundColor = "black";
+        }
+        sectionRef.current.style.backgroundColor = "darkslategray";
+        setSelectedSectionRef(sectionRef);
     }
 
     useEffect(() => {
@@ -29,6 +35,7 @@ const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitl
         <div className="section-container">
             <div 
                 className="section"
+                ref={sectionRef}
                 onClick={handleClickEnterSection}
             >
                 {title}
