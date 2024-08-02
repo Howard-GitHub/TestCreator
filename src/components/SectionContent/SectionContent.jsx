@@ -5,6 +5,7 @@ import TitleInput from './TitleInput/TitleInput';
 import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
+import TestButton from './TestButton/TestButton';
 
 const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle, setSelectedSectionRef}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
@@ -16,6 +17,9 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                 sectionId={sectionId}
                 sectionTitle={sectionTitle}
                 setSectionTitle={setSectionTitle}
+            />
+            <TestButton
+                arrayOfProblems={arrayOfProblemInputs}
             />
             {(sectionIsSelected) ? (
                 <>
@@ -35,12 +39,15 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                     <div className="section-content">
                         {(arrayOfProblemInputs !== null) &&
                             arrayOfProblemInputs.map((problemInput) => (
-                                <ProblemInput
-                                    key={problemInput.id}
-                                    problemInputId={problemInput.id}
-                                    handleClickRemoveProblemInput={handleClickRemoveItem}
-                                />
-                        ))}
+                                ((problemInput !== undefined) && (problemInput !== null)) && (
+                                    <ProblemInput
+                                        key={problemInput.id}
+                                        problemInputId={problemInput.id}
+                                        handleClickRemoveProblemInput={handleClickRemoveItem}
+                                    />
+                                )
+                            ))
+                        }
                     </div>
                 </>
             ) : (
