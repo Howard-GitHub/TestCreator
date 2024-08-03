@@ -30,9 +30,10 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                         handleClickRemoveItem={handleClickRemoveSection}
                         setArrayOfProblemInputs={setArrayOfProblemInputs}
                         setSectionIsSelected={setSectionIsSelected}
-                        id={sectionId}
                         setSectionTitle={setSectionTitle}
                         setSelectedSectionRef={setSelectedSectionRef}
+                        arrayOfProblemInputs={arrayOfProblemInputs}
+                        id={sectionId}
                     />
                     <AddButton
                         type={"problem"}
