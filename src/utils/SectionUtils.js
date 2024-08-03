@@ -1,3 +1,4 @@
+
 // Displays content for the selected section
 export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, newSelectedSectionRef, selectedSectionRef, setSelectedSectionRef) => {
     setSectionId(id);
@@ -10,15 +11,15 @@ export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, 
 }
 
 // Shuffles the elements in an array
-export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems) => {
+export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems, navigate, path) => {
     let firstRandomIndex;
     let secondRandomIndex;
     let tempArray = [...arrayOfProblems];
     let temp;
 
     for (let counter = 0; counter < arrayOfProblems.length; counter++) {
-        firstRandomIndex = Math.round(Math.random() * arrayOfProblems.length);
-        secondRandomIndex = Math.round(Math.random() * arrayOfProblems.length);
+        firstRandomIndex = Math.floor(Math.random() * arrayOfProblems.length);
+        secondRandomIndex = Math.floor(Math.random() * arrayOfProblems.length);
         
         temp = tempArray[firstRandomIndex];
         tempArray[firstRandomIndex] = tempArray[secondRandomIndex];
@@ -26,4 +27,10 @@ export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems) => {
     }
 
     setArrayOfProblems(tempArray);
+    handleClickSwitchPage(navigate, path);
+}
+
+
+export const handleClickSwitchPage = (navigate, path) => {
+    navigate(path);
 }

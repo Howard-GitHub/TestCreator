@@ -1,4 +1,4 @@
-const Test = () => {
+const Test = ({arrayOfProblems}) => {
     return (  
         <div className="test-container">
             Test Page

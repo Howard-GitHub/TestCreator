@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import ProblemInput from './ProblemInput/ProblemInput';
 import './SectionContent.css'
 import TitleInput from './TitleInput/TitleInput';
@@ -7,7 +7,8 @@ import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
 import TestButton from './TestButton/TestButton';
 
-const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle, setSelectedSectionRef}) => {
+const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle, 
+                        setSelectedSectionRef, setArrayOfProblems}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
 
@@ -18,11 +19,12 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                 sectionTitle={sectionTitle}
                 setSectionTitle={setSectionTitle}
             />
-            <TestButton
-                arrayOfProblems={arrayOfProblemInputs}
-            />
             {(sectionIsSelected) ? (
                 <>
+                    <TestButton
+                        arrayOfProblems={arrayOfProblemInputs}
+                        setArrayOfProblems={setArrayOfProblems}
+                    />
                     <RemoveButton
                         type={"section"}
                         handleClickRemoveItem={handleClickRemoveSection}
