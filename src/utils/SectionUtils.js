@@ -30,7 +30,7 @@ export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems, navigate
     handleClickSwitchPage(navigate, path);
 }
 
-
+// Transitions to a different page
 export const handleClickSwitchPage = (navigate, path) => {
     navigate(path);
 }

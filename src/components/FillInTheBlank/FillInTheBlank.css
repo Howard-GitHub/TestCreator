@@ -1,0 +1,28 @@
+.fill-in-the-blank {
+    color: white;
+}
+
+.fill-in-the-blank__prompt {
+    position: absolute;
+    word-break: break-word;
+    width: 70%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 30px;
+}
+
+.fill-in-the-blank__answer-input {
+    position: absolute;
+    background-color: black;
+    resize: none;
+    outline: none;
+    color: white;
+    border: 1px solid darkslategray;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 70%;
+    height: 50px;
+    font-size: 30px;
+}
