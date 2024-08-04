@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import './Test.css';
 import FillInTheBlank from '../components/FillInTheBlank/FillInTheBlank';
+import NextButton from '../components/NextButton/NextButton';
 
 const Test = ({arrayOfProblems}) => {
     const [index, setIndex] = useState(0);
@@ -16,6 +17,10 @@ const Test = ({arrayOfProblems}) => {
             <div className="test">
                 <FillInTheBlank
                     problemId={problem.id}
+                />
+                <NextButton
+                    index={index}
+                    setIndex={setIndex}
                 />
             </div>
         </div>
