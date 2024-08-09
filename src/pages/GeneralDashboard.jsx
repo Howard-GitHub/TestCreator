@@ -4,12 +4,9 @@ import SectionsDashboard from "../components/SectionsDashboard/SectionsDashboard
 import './GeneralDashboard.css';
 import useLocalStoredArray from "../hooks/useLocalStoredArray";
 
-const GeneralDashboard = ({setArrayOfProblems}) => {
-    const [sectionId, setSectionId] = useState(null);
+const GeneralDashboard = ({setArrayOfProblems, sectionId, setSectionId, sectionIsSelected, setSectionIsSelected, selectedSectionRef, setSelectedSectionRef}) => {
     const [arrayOfSections, setArrayOfSections] = useState(null);
-    const [sectionIsSelected, setSectionIsSelected] = useState(false);
     const [sectionTitle, setSectionTitle] = useState("");
-    const [selectedSectionRef, setSelectedSectionRef] = useState(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray("sectionsDashboard", arrayOfSections, setArrayOfSections);
 
     return (  
@@ -18,7 +15,6 @@ const GeneralDashboard = ({setArrayOfProblems}) => {
                 sectionId={sectionId}
                 setSectionId={setSectionId}
                 handleClickAddSection={handleClickAddItem}
-                handleClickRemoveItem={handleClickRemoveItem}
                 arrayOfSections={arrayOfSections}
                 setArrayOfSections={setArrayOfSections}
                 setSectionIsSelected={setSectionIsSelected}

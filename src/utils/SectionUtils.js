@@ -3,7 +3,7 @@
 export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, newSelectedSectionRef, selectedSectionRef, setSelectedSectionRef) => {
     setSectionId(id);
     setSectionIsSelected(true);
-    if (selectedSectionRef) {
+    if (selectedSectionRef && selectedSectionRef.current) {
         selectedSectionRef.current.style.backgroundColor = "black";
     }
     newSelectedSectionRef.current.style.backgroundColor = "darkslategray";

@@ -24,6 +24,14 @@ const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitl
         }
     }, [sectionTitle])
 
+    
+    useEffect(() => {
+        if (id === sectionId) {
+            sectionRef.current.style.backgroundColor = 'darkslategray';
+            setSelectedSectionRef(sectionRef);
+        }
+    }, [])
+
     return (  
         <div className="section-container">
             <div 

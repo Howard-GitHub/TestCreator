@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import './Test.css';
 import FillInTheBlank from '../components/FillInTheBlank/FillInTheBlank';
 import NextButton from '../components/NextButton/NextButton';
+import ExitTestButton from '../components/ExitTestButton/ExitTestButton';
 
 const Test = ({arrayOfProblems}) => {
     const [index, setIndex] = useState(0);
@@ -9,7 +10,6 @@ const Test = ({arrayOfProblems}) => {
 
     useEffect(() => {
         setProblem(arrayOfProblems[index]);
-        console.log("id", arrayOfProblems[index]);
     }, [index])
 
     return (  
@@ -22,6 +22,7 @@ const Test = ({arrayOfProblems}) => {
                     index={index}
                     setIndex={setIndex}
                 />
+                <ExitTestButton/>
             </div>
         </div>
     );
