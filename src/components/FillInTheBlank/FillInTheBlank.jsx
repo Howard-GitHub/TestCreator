@@ -3,7 +3,7 @@ import './FillInTheBlank.css';
 import NextButton from '../../components/NextButton/NextButton';
 import CheckButton from '../../components/CheckButton/CheckButton';
 
-const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect}) => {
+const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems}) => {
     const [prompt, setPrompt] = useState("");
     const [answer, setAnswer] = useState("");
     const [userInput, setUserInput] = useState("");
@@ -47,6 +47,8 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setIndex={setIndex}
                         setUserInput={setUserInput}
                         setCheckButtonIsClicked={setCheckButtonIsClicked}
+                        numCompletedProblems={numCompletedProblems}
+                        setNumCompletedProblems={setNumCompletedProblems}
                     />
                 )}
         </div>

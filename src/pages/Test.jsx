@@ -5,12 +5,14 @@ import ExitTestButton from '../components/ExitTestButton/ExitTestButton';
 import CorrectScreen from '../components/CorrectScreen/CorrectScreen';
 import IncorrectScreen from '../components/IncorrectScreen/IncorrectScreen';
 import NeutralScreen from '../components/NeutralScreen/NeutralScreen';
+import NumCompletedProblems from '../components/NumCompletedProblems/NumCompletedProblems';
 
 const Test = ({arrayOfProblems}) => {
     const [index, setIndex] = useState(0);
     const [problem, setProblem] = useState(arrayOfProblems[0]);
     const [isCorrect, setIsCorrect] = useState(null);
     const [checkButtonIsClicked, setCheckButtonIsClicked] = useState(false);
+    const [numCompletedProblems, setNumCompletedProblems] = useState(0);
 
     useEffect(() => {
         setProblem(arrayOfProblems[index]);
@@ -26,6 +28,8 @@ const Test = ({arrayOfProblems}) => {
                     checkButtonIsClicked={checkButtonIsClicked}
                     setCheckButtonIsClicked={setCheckButtonIsClicked}
                     setIsCorrect={setIsCorrect}
+                    numCompletedProblems={numCompletedProblems}
+                    setNumCompletedProblems={setNumCompletedProblems}
                 />
                 <ExitTestButton/>
                 {(checkButtonIsClicked) ? (
@@ -37,6 +41,10 @@ const Test = ({arrayOfProblems}) => {
                 ) : (
                     <NeutralScreen/>
                 )}
+                <NumCompletedProblems
+                    numCompletedProblems={numCompletedProblems}
+                    numProblems={arrayOfProblems.length}
+                />
             </div>
         </div>
     );
