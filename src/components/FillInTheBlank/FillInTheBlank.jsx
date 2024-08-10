@@ -45,6 +45,7 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                     <NextButton
                         index={index}
                         setIndex={setIndex}
+                        setUserInput={setUserInput}
                         setCheckButtonIsClicked={setCheckButtonIsClicked}
                     />
                 )}
