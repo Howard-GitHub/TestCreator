@@ -1,0 +1,13 @@
+.check-button {
+    position: absolute;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 1px solid darkslategray;
+    bottom: 10px;
+    right: 15px;
+    border-radius: 10px;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

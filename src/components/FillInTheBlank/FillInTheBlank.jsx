@@ -1,14 +1,16 @@
 import {useEffect, useState} from "react";
 import './FillInTheBlank.css';
+import NextButton from '../../components/NextButton/NextButton';
+import CheckButton from '../../components/CheckButton/CheckButton';
 
-const FillInTheBlank = ({problemId}) => {
+const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect}) => {
     const [prompt, setPrompt] = useState("");
     const [answer, setAnswer] = useState("");
-    const [answerInput, setAnswerInput] = useState("");
+    const [userInput, setUserInput] = useState("");
 
     // Updates the value of the argument passed
     const handleChangeTextarea = (event) => {
-        setAnswerInput(event.target.value);
+        setUserInput(event.target.value);
     }
 
     useEffect(() => {
@@ -28,10 +30,24 @@ const FillInTheBlank = ({problemId}) => {
                 </label>
                 <textarea 
                     className="fill-in-the-blank__answer-input"
-                    value={answerInput}
+                    value={userInput}
                     onChange={handleChangeTextarea}
                 />
             </div>
+            {(!checkButtonIsClicked) ? (
+                    <CheckButton 
+                        answer={answer}
+                        userInput={userInput}
+                        setCheckButtonIsClicked={setCheckButtonIsClicked}
+                        setIsCorrect={setIsCorrect}
+                    />
+                ) : (
+                    <NextButton
+                        index={index}
+                        setIndex={setIndex}
+                        setCheckButtonIsClicked={setCheckButtonIsClicked}
+                    />
+                )}
         </div>
     );
 }
