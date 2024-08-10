@@ -1,7 +1,7 @@
 .correct-screen__top-border {
     position: absolute;
     background-color: darkgreen;
-    top: 10%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, 0%);
     width: 30%;
@@ -32,7 +32,7 @@
 .correct-screen__bottom-border {
     position: absolute;
     background-color: darkgreen;
-    bottom: 7%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, 0%);
     width: 50%;

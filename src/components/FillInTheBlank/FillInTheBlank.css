@@ -6,7 +6,7 @@
     position: absolute;
     word-break: break-word;
     width: 70%;
-    top: 15%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, 0%);
     font-size: 30px;
@@ -19,7 +19,7 @@
     outline: none;
     color: white;
     border: 1px solid darkslategray;
-    bottom: 15%;
+    bottom: 20%;
     left: 50%;
     transform: translate(-50%, 0%);
     width: 70%;

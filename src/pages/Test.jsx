@@ -4,6 +4,7 @@ import FillInTheBlank from '../components/FillInTheBlank/FillInTheBlank';
 import ExitTestButton from '../components/ExitTestButton/ExitTestButton';
 import CorrectScreen from '../components/CorrectScreen/CorrectScreen';
 import IncorrectScreen from '../components/IncorrectScreen/IncorrectScreen';
+import NeutralScreen from '../components/NeutralScreen/NeutralScreen';
 
 const Test = ({arrayOfProblems}) => {
     const [index, setIndex] = useState(0);
@@ -27,12 +28,14 @@ const Test = ({arrayOfProblems}) => {
                     setIsCorrect={setIsCorrect}
                 />
                 <ExitTestButton/>
-                {(checkButtonIsClicked) && (
+                {(checkButtonIsClicked) ? (
                     (isCorrect === true) ? (
                         <CorrectScreen/>
                     ) : (
                         <IncorrectScreen/>
                     )
+                ) : (
+                    <NeutralScreen/>
                 )}
             </div>
         </div>
