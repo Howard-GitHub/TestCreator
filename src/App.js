@@ -1,3 +1,4 @@
+import './App.css'
 import {useState} from 'react';
 import GeneralDashboard from './pages/GeneralDashboard';
 import Test from './pages/Test';
