@@ -40,9 +40,7 @@
 .incorrect-screen__bottom-section__label {
     position: absolute;
     color: red;
-    top: 0%;
     font-size: 18px;
-    padding-bottom: 100px;
     top: 15px;
     left: 50%;
     transform: translate(-50%, 0%);
