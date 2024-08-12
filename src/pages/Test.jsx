@@ -46,7 +46,9 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                     (isCorrect === true) ? (
                         <CorrectScreen/>
                     ) : (
-                        <IncorrectScreen/>
+                        <IncorrectScreen
+                            problemId={problem.id}
+                        />
                     )
                 ) : (
                     <NeutralScreen/>
