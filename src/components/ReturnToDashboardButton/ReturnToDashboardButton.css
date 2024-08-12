@@ -1,0 +1,27 @@
+.return-button--test {
+    position: absolute;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    top: 10px;
+    left: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.return-button--test-complete {
+    position: absolute;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 1px solid darkslategray;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

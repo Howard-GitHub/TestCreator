@@ -1,10 +1,10 @@
 import './NumCompletedProblems.css';
 
-const NumCompletedProblems = ({numCompletedProblems, numProblems}) => {
+const NumCompletedProblems = ({numCompletedProblems, numOfProblems}) => {
     return (  
         <div className="num-completed-problems-container">
             <label className="num-completed-problems">
-                Completed: {numCompletedProblems} / {numProblems}
+                Completed: {numCompletedProblems} / {numOfProblems}
             </label>
         </div>
     );

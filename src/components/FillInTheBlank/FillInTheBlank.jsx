@@ -2,8 +2,10 @@ import {useEffect, useState} from "react";
 import './FillInTheBlank.css';
 import NextButton from '../../components/NextButton/NextButton';
 import CheckButton from '../../components/CheckButton/CheckButton';
+import FinishButton from "../../components/FinishButton/FinishButton";
 
-const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems}) => {
+const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
+                        numOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [prompt, setPrompt] = useState("");
     const [answer, setAnswer] = useState("");
     const [userInput, setUserInput] = useState("");
@@ -40,8 +42,11 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         userInput={userInput}
                         setCheckButtonIsClicked={setCheckButtonIsClicked}
                         setIsCorrect={setIsCorrect}
+                        numOfCorrect={numOfCorrect}
+                        setNumOfCorrect={setNumOfCorrect}
                     />
                 ) : (
+                    (index < (numOfProblems - 1)) ? (
                     <NextButton
                         index={index}
                         setIndex={setIndex}
@@ -50,6 +55,9 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         numCompletedProblems={numCompletedProblems}
                         setNumCompletedProblems={setNumCompletedProblems}
                     />
+                    ) : (
+                        <FinishButton/>
+                    )
                 )}
         </div>
     );

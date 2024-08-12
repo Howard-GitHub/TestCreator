@@ -1,3 +1,4 @@
+import {handleClickSwitchPage} from "./NavigateUtils";
 
 // Displays content for the selected section
 export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, newSelectedSectionRef, selectedSectionRef, setSelectedSectionRef) => {
@@ -28,9 +29,4 @@ export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems, navigate
 
     setArrayOfProblems(tempArray);
     handleClickSwitchPage(navigate, path);
-}
-
-// Transitions to a different page
-export const handleClickSwitchPage = (navigate, path) => {
-    navigate(path);
 }
