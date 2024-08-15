@@ -6,6 +6,7 @@ export const handleClickNextProblem = (index, setIndex, setUserInput, setCheckBu
     setNumCompletedProblems(numCompletedProblems + 1);
 }
 
+// Checks if the user's answer is correct
 export const handleClickCheck = (userInput, answer, setIsCorrect, numOfCorrect, setNumOfCorrect, setCheckButtonIsClicked) => {
     if (userInput === answer) {
         setIsCorrect(true);

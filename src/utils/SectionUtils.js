@@ -11,22 +11,27 @@ export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, 
     setSelectedSectionRef(newSelectedSectionRef);
 }
 
+// Transitions user to the test page and randomizes the questions asked
+export const handleClickTest = (arrayOfProblems, setArrayOfProblems, navigate, path) => {
+    handleShuffle(arrayOfProblems, setArrayOfProblems);
+    handleClickSwitchPage(navigate, path);
+}
+
 // Shuffles the elements in an array
-export const handleClickShuffle = (arrayOfProblems, setArrayOfProblems, navigate, path) => {
+export const handleShuffle = (array, setArray) => {
     let firstRandomIndex;
     let secondRandomIndex;
-    let tempArray = [...arrayOfProblems];
+    let tempArray = [...array];
     let temp;
 
-    for (let counter = 0; counter < arrayOfProblems.length; counter++) {
-        firstRandomIndex = Math.floor(Math.random() * arrayOfProblems.length);
-        secondRandomIndex = Math.floor(Math.random() * arrayOfProblems.length);
+    for (let counter = 0; counter < array.length; counter++) {
+        firstRandomIndex = Math.floor(Math.random() * array.length);
+        secondRandomIndex = Math.floor(Math.random() * array.length);
         
         temp = tempArray[firstRandomIndex];
         tempArray[firstRandomIndex] = tempArray[secondRandomIndex];
         tempArray[secondRandomIndex] = temp;
     }
 
-    setArrayOfProblems(tempArray);
-    handleClickSwitchPage(navigate, path);
+    setArray(tempArray);
 }

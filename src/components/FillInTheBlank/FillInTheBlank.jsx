@@ -1,28 +1,19 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import './FillInTheBlank.css';
 import NextButton from '../../components/NextButton/NextButton';
 import CheckButton from '../../components/CheckButton/CheckButton';
 import FinishButton from "../../components/FinishButton/FinishButton";
+import useProblemVariables from "../../hooks/useProblemVariables";
 
 const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
                         numOfProblems, numOfCorrect, setNumOfCorrect}) => {
-    const [prompt, setPrompt] = useState("");
-    const [answer, setAnswer] = useState("");
     const [userInput, setUserInput] = useState("");
+    const {prompt, answer} = useProblemVariables(problemId);
 
     // Updates the value of the argument passed
     const handleChangeTextarea = (event) => {
         setUserInput(event.target.value);
     }
-
-    useEffect(() => {
-        const promptLocalKey = "prompt" + problemId;
-        const answerLocalKey = "answer" + problemId;
-        const locallyStoredPrompt = localStorage.getItem(promptLocalKey);
-        const locallyStoredAnswer = localStorage.getItem(answerLocalKey);
-        setPrompt(locallyStoredPrompt);
-        setAnswer(locallyStoredAnswer);
-    }, [problemId])
 
     return (  
         <div className="fill-in-the-blank-container">

@@ -6,6 +6,7 @@ import CorrectScreen from '../components/CorrectScreen/CorrectScreen';
 import IncorrectScreen from '../components/IncorrectScreen/IncorrectScreen';
 import NeutralScreen from '../components/NeutralScreen/NeutralScreen';
 import NumCompletedProblems from '../components/NumCompletedProblems/NumCompletedProblems';
+import MultipleChoice from '../components/MultipleChoice/MultipleChoice';
 
 const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [index, setIndex] = useState(0);
@@ -13,6 +14,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [isCorrect, setIsCorrect] = useState(null);
     const [checkButtonIsClicked, setCheckButtonIsClicked] = useState(false);
     const [numCompletedProblems, setNumCompletedProblems] = useState(0);
+    const [isFillInTheBlank, setIsFillInTheBlank] = useState(null);
 
     useEffect(() => {
         setNumCompletedProblems(0);
@@ -23,22 +25,64 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
         setProblem(arrayOfProblems[index]);
     }, [index])
 
+    useEffect(() => {
+        let random = Math.floor(Math.random() * 2);
+        if (random === 0) {
+            setIsFillInTheBlank(true);
+        }
+        else {
+            setIsFillInTheBlank(false);
+        }
+    }, [problem])
+
     return (  
         <div className="test-container">
             <div className="test">
-                <FillInTheBlank
-                    problemId={problem.id}
-                    index={index}
-                    setIndex={setIndex}
-                    checkButtonIsClicked={checkButtonIsClicked}
-                    setCheckButtonIsClicked={setCheckButtonIsClicked}
-                    setIsCorrect={setIsCorrect}
-                    numCompletedProblems={numCompletedProblems}
-                    setNumCompletedProblems={setNumCompletedProblems}
-                    numOfProblems={arrayOfProblems.length}
-                    numOfCorrect={numOfCorrect}
-                    setNumOfCorrect={setNumOfCorrect}
-                />
+                {/*(isFillInTheBlank !== null) && 
+                    (isFillInTheBlank) ? (
+                        <FillInTheBlank
+                            problemId={problem.id}
+                            index={index}
+                            setIndex={setIndex}
+                            checkButtonIsClicked={checkButtonIsClicked}
+                            setCheckButtonIsClicked={setCheckButtonIsClicked}
+                            setIsCorrect={setIsCorrect}
+                            numCompletedProblems={numCompletedProblems}
+                            setNumCompletedProblems={setNumCompletedProblems}
+                            numOfProblems={arrayOfProblems.length}
+                            numOfCorrect={numOfCorrect}
+                            setNumOfCorrect={setNumOfCorrect}
+                        />
+                    ) : (
+                        <MultipleChoice
+                            problemId={problem.id}
+                            index={index}
+                            setIndex={setIndex}
+                            checkButtonIsClicked={checkButtonIsClicked}
+                            setCheckButtonIsClicked={setCheckButtonIsClicked}
+                            setIscorrect={setIsCorrect}
+                            numCompletedProblems={numCompletedProblems}
+                            setNumCompletedProblems={setNumCompletedProblems}
+                            numOfProblems={arrayOfProblems.length}
+                            numOfCorrect={numOfCorrect}
+                            setNumOfCorrect={setNumOfCorrect}
+                            arrayOfProblems={arrayOfProblems}
+                        />
+                    )*/}
+                        <MultipleChoice
+                            problemId={problem.id}
+                            index={index}
+                            setIndex={setIndex}
+                            checkButtonIsClicked={checkButtonIsClicked}
+                            setCheckButtonIsClicked={setCheckButtonIsClicked}
+                            setIscorrect={setIsCorrect}
+                            numCompletedProblems={numCompletedProblems}
+                            setNumCompletedProblems={setNumCompletedProblems}
+                            numOfProblems={arrayOfProblems.length}
+                            numOfCorrect={numOfCorrect}
+                            setNumOfCorrect={setNumOfCorrect}
+                            arrayOfProblems={arrayOfProblems}
+                        />
                 <ReturnToDashboardButton
                     type={"test"}
                 />

@@ -1,4 +1,4 @@
-import {handleClickShuffle} from '../../../utils/SectionUtils';
+import {handleClickTest} from '../../../utils/SectionUtils';
 import './TestButton.css'
 import {useNavigate} from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const TestButton = ({arrayOfProblems, setArrayOfProblems}) => {
         <div className="test-button-container">
             <button 
                 className="test-button"
-                onClick={() => handleClickShuffle(arrayOfProblems, setArrayOfProblems, navigate, "/test")}
+                onClick={() => handleClickTest(arrayOfProblems, setArrayOfProblems, navigate, "/test")}
             >
                 Test
             </button>

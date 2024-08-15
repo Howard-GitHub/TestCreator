@@ -1,0 +1,21 @@
+.multiple-choice {
+    color: white;
+}
+
+.multiple-choice__prompt {
+    position: absolute;
+    word-break: break-word;
+    width: 70%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 30px;
+}
+
+.multiple-choice__choices {
+    position: absolute;
+    top: 420px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0%);
+}
