@@ -28,28 +28,28 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                 />
             </div>
             {(!checkButtonIsClicked) ? (
-                    <CheckButton 
-                        answer={answer}
-                        userInput={userInput}
-                        setCheckButtonIsClicked={setCheckButtonIsClicked}
-                        setIsCorrect={setIsCorrect}
-                        numOfCorrect={numOfCorrect}
-                        setNumOfCorrect={setNumOfCorrect}
-                    />
+                <CheckButton 
+                    answer={answer}
+                    userInput={userInput}
+                    setCheckButtonIsClicked={setCheckButtonIsClicked}
+                    setIsCorrect={setIsCorrect}
+                    numOfCorrect={numOfCorrect}
+                    setNumOfCorrect={setNumOfCorrect}
+                />
+            ) : (
+                (index < (numOfProblems - 1)) ? (
+                <NextButton
+                    index={index}
+                    setIndex={setIndex}
+                    setUserInput={setUserInput}
+                    setCheckButtonIsClicked={setCheckButtonIsClicked}
+                    numCompletedProblems={numCompletedProblems}
+                    setNumCompletedProblems={setNumCompletedProblems}
+                />
                 ) : (
-                    (index < (numOfProblems - 1)) ? (
-                    <NextButton
-                        index={index}
-                        setIndex={setIndex}
-                        setUserInput={setUserInput}
-                        setCheckButtonIsClicked={setCheckButtonIsClicked}
-                        numCompletedProblems={numCompletedProblems}
-                        setNumCompletedProblems={setNumCompletedProblems}
-                    />
-                    ) : (
-                        <FinishButton/>
-                    )
-                )}
+                    <FinishButton/>
+                )
+            )}
         </div>
     );
 }

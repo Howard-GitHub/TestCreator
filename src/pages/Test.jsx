@@ -75,7 +75,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                             setIndex={setIndex}
                             checkButtonIsClicked={checkButtonIsClicked}
                             setCheckButtonIsClicked={setCheckButtonIsClicked}
-                            setIscorrect={setIsCorrect}
+                            setIsCorrect={setIsCorrect}
                             numCompletedProblems={numCompletedProblems}
                             setNumCompletedProblems={setNumCompletedProblems}
                             numOfProblems={arrayOfProblems.length}

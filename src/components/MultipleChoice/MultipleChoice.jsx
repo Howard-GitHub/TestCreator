@@ -5,15 +5,18 @@ import NextButton from "../NextButton/NextButton";
 import './MultipleChoice.css';
 import Choice from "./Choice/Choice";
 import {handleShuffle} from "../../utils/SectionUtils";
+import CheckButton from "../CheckButton/CheckButton";
 
-const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIscorrect, numCompletedProblems, setNumCompletedProblems,
+const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems,
                         numOfProblems, numOfCorrect, setNumOfCorrect, arrayOfProblems}) => {
 
     const {prompt, answer} = useProblemVariables(problemId);
-    const [userInput, setUserInput] = useState("");
     const [options, setOptions] = useState([]);
     const [stop, setStop] = useState(false);
+    const [selectedChoiceRef, setSelectedChoiceRef] = useState(null);
+    const [chosenAnswer, setChosenAnswer] = useState("");
 
+    // Stores the four choices that the user can choose from
     useEffect(() => {  
         if ((!stop) && (answer !== "")) {
             let firstRandomIndex;
@@ -38,21 +41,28 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
             randomOptionOne = localStorage.getItem("answer" + arrayOfProblems[firstRandomIndex].id);
             randomOptionTwo = localStorage.getItem("answer" + arrayOfProblems[secondRandomIndex].id);
             randomOptionThree = localStorage.getItem("answer" + arrayOfProblems[thirdRandomIndex].id);
-            setOptions([randomOptionOne, randomOptionTwo, randomOptionThree, optionWithAnswer]);
+            setOptions([optionWithAnswer, randomOptionOne, randomOptionTwo, randomOptionThree]);
         }
-    }, [problemId, stop, answer])
+    }, [index, stop, answer])
 
 
+    // Shuffles the options in random order
     useEffect(() => {
-        if ((options.length > 0) && (!stop)) {
+        if ((options.length > 0) && (answer === options[0]) && !stop) {
             handleShuffle(options, setOptions);
             setStop(true);
         }
-    }, [options, stop])
+    }, [options, stop, answer])
 
+    // Deselects the selected choice
     useEffect(() => {
         setStop(false);
-    }, [index])
+        if (selectedChoiceRef) {
+            selectedChoiceRef.current.style.backgroundColor = "rgb(18, 18, 18)";
+            selectedChoiceRef.current.style.border = "1px solid darkslategray";
+            setSelectedChoiceRef(null);
+        }
+    }, [answer])
 
     return (  
         <div className="multiple-choice-container">
@@ -63,30 +73,52 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                 <div className="multiple-choice__choices">
                     <Choice
                         option={options[0]}
+                        selectedChoiceRef={selectedChoiceRef}
+                        setSelectedChoiceRef={setSelectedChoiceRef}
+                        setChosenAnswer={setChosenAnswer}
                     />
                     <Choice
                         option={options[1]}
+                        selectedChoiceRef={selectedChoiceRef}
+                        setSelectedChoiceRef={setSelectedChoiceRef}
+                        setChosenAnswer={setChosenAnswer}
                     />
                     <Choice
                         option={options[2]}
+                        selectedChoiceRef={selectedChoiceRef}
+                        setSelectedChoiceRef={setSelectedChoiceRef}
+                        setChosenAnswer={setChosenAnswer}
                     />
                     <Choice
                         option={options[3]}
+                        selectedChoiceRef={selectedChoiceRef}
+                        setSelectedChoiceRef={setSelectedChoiceRef}
+                        setChosenAnswer={setChosenAnswer}
                     />
                 </div>
-                {(index < (numOfProblems - 1)) ? (
-                    <NextButton
-                        index={index}
-                        setIndex={setIndex}
-                        setUserInput={setUserInput}
+                {(!checkButtonIsClicked) ? (
+                    <CheckButton 
+                        answer={answer}
+                        userInput={chosenAnswer}
                         setCheckButtonIsClicked={setCheckButtonIsClicked}
-                        numCompletedProblems={numCompletedProblems}
-                        setNumCompletedProblems={setNumCompletedProblems}
+                        setIsCorrect={setIsCorrect}
+                        numOfCorrect={numOfCorrect}
+                        setNumOfCorrect={setNumOfCorrect}
                     />
+                ) : (
+                    (index < (numOfProblems - 1)) ? (
+                        <NextButton
+                            index={index}
+                            setIndex={setIndex}
+                            setUserInput={setChosenAnswer}
+                            setCheckButtonIsClicked={setCheckButtonIsClicked}
+                            numCompletedProblems={numCompletedProblems}
+                            setNumCompletedProblems={setNumCompletedProblems}
+                        />
                     ) : (
                         <FinishButton/>
                     )
-                }
+                )}
             </div>
         </div>
     );

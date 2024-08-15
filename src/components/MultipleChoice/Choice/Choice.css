@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     color: white;
+    cursor: pointer;
     border: 1px solid darkslategray;
     width: 60%;
     height: 60px;
