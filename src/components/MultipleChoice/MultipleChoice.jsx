@@ -110,7 +110,7 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         <NextButton
                             index={index}
                             setIndex={setIndex}
-                            setUserInput={setChosenAnswer}
+                            setUserAnswer={setChosenAnswer}
                             setCheckButtonIsClicked={setCheckButtonIsClicked}
                             numCompletedProblems={numCompletedProblems}
                             setNumCompletedProblems={setNumCompletedProblems}

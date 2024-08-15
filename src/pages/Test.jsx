@@ -38,7 +38,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
     return (  
         <div className="test-container">
             <div className="test">
-                {/*(isFillInTheBlank !== null) && 
+                {(isFillInTheBlank !== null) && 
                     (isFillInTheBlank) ? (
                         <FillInTheBlank
                             problemId={problem.id}
@@ -60,21 +60,6 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                             setIndex={setIndex}
                             checkButtonIsClicked={checkButtonIsClicked}
                             setCheckButtonIsClicked={setCheckButtonIsClicked}
-                            setIscorrect={setIsCorrect}
-                            numCompletedProblems={numCompletedProblems}
-                            setNumCompletedProblems={setNumCompletedProblems}
-                            numOfProblems={arrayOfProblems.length}
-                            numOfCorrect={numOfCorrect}
-                            setNumOfCorrect={setNumOfCorrect}
-                            arrayOfProblems={arrayOfProblems}
-                        />
-                    )*/}
-                        <MultipleChoice
-                            problemId={problem.id}
-                            index={index}
-                            setIndex={setIndex}
-                            checkButtonIsClicked={checkButtonIsClicked}
-                            setCheckButtonIsClicked={setCheckButtonIsClicked}
                             setIsCorrect={setIsCorrect}
                             numCompletedProblems={numCompletedProblems}
                             setNumCompletedProblems={setNumCompletedProblems}
@@ -83,6 +68,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                             setNumOfCorrect={setNumOfCorrect}
                             arrayOfProblems={arrayOfProblems}
                         />
+                    )}
                 <ReturnToDashboardButton
                     type={"test"}
                 />

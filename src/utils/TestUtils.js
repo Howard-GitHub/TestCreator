@@ -1,7 +1,7 @@
 // Transitions to the next problem
-export const handleClickNextProblem = (index, setIndex, setUserInput, setCheckButtonIsClicked, numCompletedProblems, setNumCompletedProblems) => {
+export const handleClickNextProblem = (index, setIndex, setUserAnswer, setCheckButtonIsClicked, numCompletedProblems, setNumCompletedProblems) => {
     setIndex(index + 1);
-    setUserInput("");
+    setUserAnswer("");
     setCheckButtonIsClicked(false);
     setNumCompletedProblems(numCompletedProblems + 1);
 }
