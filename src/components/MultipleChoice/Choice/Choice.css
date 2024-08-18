@@ -1,5 +1,7 @@
 .choice-container {
     padding: 6px;
+    box-sizing: border-box;
+
 }
 
 .choice {
@@ -9,9 +11,10 @@
     align-items: center;
     color: white;
     cursor: pointer;
+    word-break: break-word;
     border: 1px solid darkslategray;
+    padding: 20px;
     width: 85%;
-    height: 60px;
     left: 50%;
     border-radius: 10px;
     font-size: 18px;

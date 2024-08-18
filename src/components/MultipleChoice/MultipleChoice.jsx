@@ -82,24 +82,28 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         selectedChoiceRef={selectedChoiceRef}
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
+                        checkButtonIsClicked={checkButtonIsClicked}
                     />
                     <Choice
                         option={options[1]}
                         selectedChoiceRef={selectedChoiceRef}
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
+                        checkButtonIsClicked={checkButtonIsClicked}
                     />
                     <Choice
                         option={options[2]}
                         selectedChoiceRef={selectedChoiceRef}
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
+                        checkButtonIsClicked={checkButtonIsClicked}
                     />
                     <Choice
                         option={options[3]}
                         selectedChoiceRef={selectedChoiceRef}
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
+                        checkButtonIsClicked={checkButtonIsClicked}
                     />
                 </div>
                 <BottomBorder
