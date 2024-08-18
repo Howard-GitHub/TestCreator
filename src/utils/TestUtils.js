@@ -18,6 +18,7 @@ export const handleClickCheck = (userInput, answer, setIsCorrect, numOfCorrect, 
     setCheckButtonIsClicked(true);
 }
 
+// Selects the choice the user clicks on, unless the check button has been clicked
 export const handleClickChoice = (event, choiceRef, selectedChoiceRef, setSelectedChoiceRef, setChosenAnswer, option, checkButtonIsClicked) => {
     if (checkButtonIsClicked) {
         event.preventDefault();

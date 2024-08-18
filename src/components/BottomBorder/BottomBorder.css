@@ -1,6 +1,6 @@
-.bottom-border{
+.bottom-border {
     position: relative;
-    top: 110px;
+    padding-top: 60px;
 }
 
 .bottom-border__neutral {

@@ -1,29 +1,34 @@
 .fill-in-the-blank {
+    position: relative;
     color: white;
     z-index: 0;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .fill-in-the-blank__prompt {
-    position: absolute;
+    position: relative;
     word-break: break-word;
-    width: 70%;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    width: 100%;
+    top: 50px;
     font-size: 30px;
 }
 
+.fill-in-the-blank__padding {
+    padding: 150px;
+}
+
 .fill-in-the-blank__answer-input {
-    position: absolute;
+    position: relative;
     background-color: black;
     resize: none;
     outline: none;
     color: white;
     border: 1px solid darkslategray;
-    bottom: 20%;
     left: 50%;
-    transform: translate(-50%, 0%);
-    width: 70%;
+    width: 100%;
     height: 50px;
+    transform: translate(-50%, 0%);
     font-size: 30px;
 }

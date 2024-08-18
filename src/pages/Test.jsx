@@ -43,19 +43,8 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                 <div 
                     ref={testFormatRef}
                     className="test__format">
-                    {/*(checkButtonIsClicked) ? (
-                        (isCorrect === true) ? (
-                            <CorrectScreen/>
-                        ) : (
-                            <IncorrectScreen
-                                problemId={problem.id}
-                            />
-                        )
-                    ) : (
-                            <NeutralScreen/>
-                        )
-                    */}
-                    {/*(isFillInTheBlank !== null) && 
+
+                    {(isFillInTheBlank !== null) && 
                         (isFillInTheBlank) ? (
                             <FillInTheBlank
                                 problemId={problem.id}
@@ -63,6 +52,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                                 setIndex={setIndex}
                                 checkButtonIsClicked={checkButtonIsClicked}
                                 setCheckButtonIsClicked={setCheckButtonIsClicked}
+                                isCorrect={isCorrect}
                                 setIsCorrect={setIsCorrect}
                                 numCompletedProblems={numCompletedProblems}
                                 setNumCompletedProblems={setNumCompletedProblems}
@@ -71,21 +61,6 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                                 setNumOfCorrect={setNumOfCorrect}
                             />
                         ) : (
-                            <MultipleChoice
-                                problemId={problem.id}
-                                index={index}
-                                setIndex={setIndex}
-                                checkButtonIsClicked={checkButtonIsClicked}
-                                setCheckButtonIsClicked={setCheckButtonIsClicked}
-                                setIsCorrect={setIsCorrect}
-                                numCompletedProblems={numCompletedProblems}
-                                setNumCompletedProblems={setNumCompletedProblems}
-                                numOfProblems={arrayOfProblems.length}
-                                numOfCorrect={numOfCorrect}
-                                setNumOfCorrect={setNumOfCorrect}
-                                arrayOfProblems={arrayOfProblems}
-                            />
-                        )*/}
                             <MultipleChoice
                                 problemId={problem.id}
                                 index={index}
@@ -101,6 +76,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                                 setNumOfCorrect={setNumOfCorrect}
                                 arrayOfProblems={arrayOfProblems}
                             />
+                        )}
                     </div>
                 <ReturnToDashboardButton
                     type={"test"}
