@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import SectionContent from "../components/SectionContent/SectionContent";
 import SectionsDashboard from "../components/SectionsDashboard/SectionsDashboard";
 import './GeneralDashboard.css';
@@ -8,6 +8,10 @@ const GeneralDashboard = ({setArrayOfProblems, sectionId, setSectionId, sectionI
     const [arrayOfSections, setArrayOfSections] = useState(null);
     const [sectionTitle, setSectionTitle] = useState("");
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray("sectionsDashboard", arrayOfSections, setArrayOfSections);
+    
+    useEffect(() => {
+        console.log(window.inner)
+    }, [])
 
     return (  
         <div className="general-dashboard-container">

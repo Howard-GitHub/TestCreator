@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 import useProblemVariables from "../../hooks/useProblemVariables";
 import FinishButton from "../FinishButton/FinishButton";
 import NextButton from "../NextButton/NextButton";
@@ -6,8 +6,10 @@ import './MultipleChoice.css';
 import Choice from "./Choice/Choice";
 import {handleShuffle} from "../../utils/SectionUtils";
 import CheckButton from "../CheckButton/CheckButton";
+import TopBorder from "../TopBorder/TopBorder";
+import BottomBorder from "../BottomBorder/BottomBorder";
 
-const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, setIsCorrect, numCompletedProblems, setNumCompletedProblems,
+const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, isCorrect, setIsCorrect, numCompletedProblems, setNumCompletedProblems,
                         numOfProblems, numOfCorrect, setNumOfCorrect, arrayOfProblems}) => {
 
     const {prompt, answer} = useProblemVariables(problemId);
@@ -67,6 +69,10 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
     return (  
         <div className="multiple-choice-container">
             <div className="multiple-choice">
+                <TopBorder
+                    isCorrect={isCorrect}
+                    checkButtonIsClicked={checkButtonIsClicked}
+                />
                 <label className="multiple-choice__prompt">
                     {prompt}
                 </label>
@@ -96,15 +102,21 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setChosenAnswer={setChosenAnswer}
                     />
                 </div>
-                {(!checkButtonIsClicked) ? (
-                    <CheckButton 
-                        answer={answer}
-                        userInput={chosenAnswer}
-                        setCheckButtonIsClicked={setCheckButtonIsClicked}
-                        setIsCorrect={setIsCorrect}
-                        numOfCorrect={numOfCorrect}
-                        setNumOfCorrect={setNumOfCorrect}
-                    />
+                <BottomBorder
+                    isCorrect={isCorrect}
+                    checkButtonIsClicked={checkButtonIsClicked}
+                    answer={answer}
+                />
+            </div>
+            {(!checkButtonIsClicked) ? (
+                <CheckButton 
+                    answer={answer}
+                    userInput={chosenAnswer}
+                    setCheckButtonIsClicked={setCheckButtonIsClicked}
+                    setIsCorrect={setIsCorrect}
+                    numOfCorrect={numOfCorrect}
+                    setNumOfCorrect={setNumOfCorrect}
+                />
                 ) : (
                     (index < (numOfProblems - 1)) ? (
                         <NextButton
@@ -119,7 +131,6 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         <FinishButton/>
                     )
                 )}
-            </div>
         </div>
     );
 }

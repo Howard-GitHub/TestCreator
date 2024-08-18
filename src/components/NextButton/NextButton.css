@@ -1,5 +1,5 @@
 .next-button {
-    position: absolute;
+    position: fixed;
     background-color: black;
     color: white;
     cursor: pointer;

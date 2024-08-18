@@ -1,5 +1,5 @@
 .check-button {
-    position: absolute;
+    position: fixed;
     background-color: black;
     color: white;
     cursor: pointer;
@@ -10,4 +10,8 @@
     font-size: 25px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.check-button-container {
+    position: fixed;
 }
