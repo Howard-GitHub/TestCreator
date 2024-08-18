@@ -17,3 +17,20 @@ export const handleClickCheck = (userInput, answer, setIsCorrect, numOfCorrect, 
     }
     setCheckButtonIsClicked(true);
 }
+
+export const handleClickChoice = (event, choiceRef, selectedChoiceRef, setSelectedChoiceRef, setChosenAnswer, option, checkButtonIsClicked) => {
+    if (checkButtonIsClicked) {
+        event.preventDefault();
+    }
+    else {
+        const previousChoiceRef = selectedChoiceRef;
+        if (previousChoiceRef) {
+            previousChoiceRef.current.style.backgroundColor = "rgb(18, 18, 18)";
+            previousChoiceRef.current.style.border = "1px solid darkslategray";
+        }
+        choiceRef.current.style.backgroundColor = "black";
+        choiceRef.current.style.border = "3px solid darkslategray";
+        setSelectedChoiceRef(choiceRef);
+        setChosenAnswer(option);
+    }
+}
