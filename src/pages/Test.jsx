@@ -43,7 +43,6 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                 <div 
                     ref={testFormatRef}
                     className="test__format">
-
                     {(isFillInTheBlank !== null) && 
                         (isFillInTheBlank) ? (
                             <FillInTheBlank
