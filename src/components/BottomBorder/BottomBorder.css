@@ -23,8 +23,11 @@
     position: absolute;
     color: red;
     font-weight: bold;
+    word-break: break-word;
     top: 10px;
     left: 50%;
+    width: 100%;
+    text-align: center;
     transform: translate(-50%, 0%);
     font-size: 18px;
 }
