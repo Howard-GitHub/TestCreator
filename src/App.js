@@ -10,7 +10,7 @@ function App() {
   const [sectionId, setSectionId] = useState(null);
   const [sectionIsSelected, setSectionIsSelected] = useState(false);
   const [selectedSectionRef, setSelectedSectionRef] = useState(null);
-  const [numOfCorrect, setNumOfCorrect] = useState(0);
+  const [numOfCorrect, setNumOfCorrect] = useState(null);
 
   return (
     <div className="App">
@@ -35,6 +35,7 @@ function App() {
             element={
               <Test
                 arrayOfProblems={arrayOfProblems}
+                setArrayOfProblems={setArrayOfProblems}
                 numOfCorrect={numOfCorrect}
                 setNumOfCorrect={setNumOfCorrect}
               />
@@ -47,6 +48,7 @@ function App() {
                 <CompleteTest
                   numOfProblems={arrayOfProblems.length}
                   numOfCorrect={numOfCorrect}
+                  setNumOfCorrect={setNumOfCorrect}
                 />
               )
             }

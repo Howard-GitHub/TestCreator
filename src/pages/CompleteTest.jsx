@@ -1,7 +1,7 @@
 import ReturnToDashboardButton from '../components/ReturnToDashboardButton/ReturnToDashboardButton';
 import './CompleteTest.css';
 
-const CompleteTest = ({numOfProblems, numOfCorrect}) => {
+const CompleteTest = ({numOfProblems, numOfCorrect, setNumOfCorrect}) => {
 
     return (  
         <div className="complete-test-container">
@@ -15,6 +15,7 @@ const CompleteTest = ({numOfProblems, numOfCorrect}) => {
                     </div>
                     <ReturnToDashboardButton
                         type={"test-complete"}
+                        setNumOfCorrect={setNumOfCorrect}
                     />
                 </div>
             </div>

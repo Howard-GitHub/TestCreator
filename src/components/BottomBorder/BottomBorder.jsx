@@ -1,11 +1,6 @@
-import {useEffect} from 'react';
 import './BottomBorder.css';
 
 const BottomBorder = ({isCorrect, checkButtonIsClicked, answer}) => {
-
-    useEffect(() => {
-        console.log("answer", answer);
-    }, [answer])
 
     return (  
         <div className="bottom-border-container">

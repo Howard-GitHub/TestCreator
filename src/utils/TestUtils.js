@@ -1,9 +1,12 @@
+import {handleClickSwitchPage} from "./NavigateUtils";
+
 // Transitions to the next problem
 export const handleClickNextProblem = (index, setIndex, setUserAnswer, setCheckButtonIsClicked, numCompletedProblems, setNumCompletedProblems) => {
     setIndex(index + 1);
     setUserAnswer("");
     setCheckButtonIsClicked(false);
     setNumCompletedProblems(numCompletedProblems + 1);
+    localStorage.setItem("checkIsClicked", JSON.stringify(false));
 }
 
 // Checks if the user's answer is correct
@@ -11,6 +14,7 @@ export const handleClickCheck = (userInput, answer, setIsCorrect, numOfCorrect, 
     if (userInput === answer) {
         setIsCorrect(true);
         setNumOfCorrect(numOfCorrect + 1);
+        localStorage.setItem("checkIsClicked", JSON.stringify(true));
     }
     else {
         setIsCorrect(false);
@@ -34,4 +38,14 @@ export const handleClickChoice = (event, choiceRef, selectedChoiceRef, setSelect
         setSelectedChoiceRef(choiceRef);
         setChosenAnswer(option);
     }
+}
+
+export const handleClickReturnToDashboard = (navigate, path, setNumOfCorrect) => {
+    handleClickSwitchPage(navigate, path);
+    localStorage.removeItem("index");
+    localStorage.removeItem("numOfCompleted");
+    localStorage.removeItem("numOfCorrect");
+    localStorage.removeItem("checkIsClicked");
+    localStorage.removeItem("test");
+    setNumOfCorrect(0);
 }

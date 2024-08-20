@@ -4,26 +4,55 @@ import FillInTheBlank from '../components/FillInTheBlank/FillInTheBlank';
 import ReturnToDashboardButton from '../components/ReturnToDashboardButton/ReturnToDashboardButton';
 import NumCompletedProblems from '../components/NumCompletedProblems/NumCompletedProblems';
 import MultipleChoice from '../components/MultipleChoice/MultipleChoice';
+import useLocalStoredArray from '../hooks/useLocalStoredArray';
 
-const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
+const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [index, setIndex] = useState(0);
-    const [problem, setProblem] = useState(arrayOfProblems[0]);
+    const [problem, setProblem] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [checkButtonIsClicked, setCheckButtonIsClicked] = useState(false);
     const [numCompletedProblems, setNumCompletedProblems] = useState(0);
     const [isFillInTheBlank, setIsFillInTheBlank] = useState(null);
     const testFormatRef = useRef(null);
+    const {} = useLocalStoredArray("test", arrayOfProblems, setArrayOfProblems);
 
-    // Resets test statistics
+    // Keeps the user on the same problem prompt if the user refreshes the screen
     useEffect(() => {
-        setNumCompletedProblems(0);
-        setNumOfCorrect(0);
-    }, [])
+        const locallyStoredIndex = localStorage.getItem("index");
+        const locallyStoredNumCompleted = localStorage.getItem("numOfCompleted");
+        const locallyStoredNumCorrect = localStorage.getItem("numOfCorrect");
+        const locallyStoredCheckIsClicked = localStorage.getItem("checkIsClicked");
+
+        if ((locallyStoredIndex !== null) && (locallyStoredNumCompleted !== null) && (locallyStoredNumCorrect !== null) && (locallyStoredCheckIsClicked !== null) && (arrayOfProblems !== null)) {
+            const clickedCheck = JSON.parse(locallyStoredCheckIsClicked);
+            const currentIndex = JSON.parse(locallyStoredIndex);
+            const numCorrectlyAnswered = JSON.parse(locallyStoredNumCorrect)
+            setIndex(currentIndex);
+            setProblem(arrayOfProblems[currentIndex]);
+            setNumCompletedProblems(currentIndex);
+            if (clickedCheck) {
+                setNumOfCorrect(numCorrectlyAnswered - 1);
+            }
+            else {
+                setNumOfCorrect(numCorrectlyAnswered);
+            }
+        }
+    }, [arrayOfProblems])
 
     // Sets the problem to the first problem in the array when the user first enters the test page
     useEffect(() => {
-        setProblem(arrayOfProblems[index]);
-    }, [index])
+        if (arrayOfProblems !== null) {
+            setProblem(arrayOfProblems[index]);
+            localStorage.setItem("index", JSON.stringify(index));
+            localStorage.setItem("numOfCompleted", JSON.stringify(index));
+        }
+    }, [index, arrayOfProblems])
+
+    useEffect(() => {
+        if (numOfCorrect !== null) {
+            localStorage.setItem("numOfCorrect", JSON.stringify(numOfCorrect));
+        }
+    }, [numOfCorrect])
 
     // Randomly decides if the question is fill in the blank or multiple choice
     useEffect(() => {
@@ -45,6 +74,7 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                     className="test__format">
                     {(isFillInTheBlank !== null) && 
                         (isFillInTheBlank) ? (
+                            ((problem !== null) && (arrayOfProblems !== null)) && (
                             <FillInTheBlank
                                 problemId={problem.id}
                                 index={index}
@@ -59,7 +89,9 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                                 numOfCorrect={numOfCorrect}
                                 setNumOfCorrect={setNumOfCorrect}
                             />
+                            )
                         ) : (
+                            ((problem !== null) && (arrayOfProblems !== null)) && (
                             <MultipleChoice
                                 problemId={problem.id}
                                 index={index}
@@ -75,15 +107,19 @@ const Test = ({arrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
                                 setNumOfCorrect={setNumOfCorrect}
                                 arrayOfProblems={arrayOfProblems}
                             />
-                        )}
+                        )
+                    )}
                     </div>
                 <ReturnToDashboardButton
                     type={"test"}
+                    setNumOfCorrect={setNumOfCorrect}
                 />
-                <NumCompletedProblems
-                    numCompletedProblems={numCompletedProblems}
-                    numOfProblems={arrayOfProblems.length}
-                />
+                {(arrayOfProblems !== null) && (
+                    <NumCompletedProblems
+                        numCompletedProblems={numCompletedProblems}
+                        numOfProblems={arrayOfProblems.length}
+                    />
+                )}
             </div>
         </div>
     );

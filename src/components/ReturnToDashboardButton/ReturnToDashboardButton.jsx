@@ -1,8 +1,8 @@
 import {useNavigate} from 'react-router-dom';
-import {handleClickSwitchPage} from '../../utils/NavigateUtils';
 import './ReturnToDashboardButton.css';
+import {handleClickReturnToDashboard} from '../../utils/TestUtils';
 
-const ReturnToDashboardButton = ({type}) => {
+const ReturnToDashboardButton = ({type, setNumOfCorrect}) => {
     const navigate = useNavigate();
 
     return (  
@@ -10,14 +10,14 @@ const ReturnToDashboardButton = ({type}) => {
             {(type === "test") ? (
                 <button 
                     className="return-button--test"
-                    onClick={() => handleClickSwitchPage(navigate, "/")}
+                    onClick={() => handleClickReturnToDashboard(navigate, "/", setNumOfCorrect)}
                 >
                     {"< Exit"}
                 </button>
             ) : (
                 <button 
                     className="return-button--test-complete"
-                    onClick={() => handleClickSwitchPage(navigate, "/")}
+                    onClick={() => handleClickReturnToDashboard(navigate, "/", setNumOfCorrect)}
                 >
                     {"Return"}
                 </button>
