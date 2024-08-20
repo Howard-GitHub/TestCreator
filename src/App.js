@@ -1,9 +1,9 @@
 import './App.css'
 import {useState} from 'react';
-import GeneralDashboard from './pages/GeneralDashboard';
-import Test from './pages/Test';
+import GeneralDashboard from './pages/GeneralDashboard/GeneralDashboard';
+import Test from './pages/Test/Test';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import CompleteTest from './pages/CompleteTest';
+import CompleteTest from './pages/CompleteTest/CompleteTest';
 
 function App() {
   const [arrayOfProblems, setArrayOfProblems] = useState(null);

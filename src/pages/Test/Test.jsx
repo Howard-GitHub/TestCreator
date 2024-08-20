@@ -1,10 +1,10 @@
 import {useEffect, useRef, useState} from 'react';
 import './Test.css';
-import FillInTheBlank from '../components/FillInTheBlank/FillInTheBlank';
-import ReturnToDashboardButton from '../components/ReturnToDashboardButton/ReturnToDashboardButton';
-import NumCompletedProblems from '../components/NumCompletedProblems/NumCompletedProblems';
-import MultipleChoice from '../components/MultipleChoice/MultipleChoice';
-import useLocalStoredArray from '../hooks/useLocalStoredArray';
+import FillInTheBlank from '../../components/FillInTheBlank/FillInTheBlank';
+import ReturnToDashboardButton from '../../components/ReturnToDashboardButton/ReturnToDashboardButton';
+import NumCompletedProblems from '../../components/NumCompletedProblems/NumCompletedProblems';
+import MultipleChoice from '../../components/MultipleChoice/MultipleChoice';
+import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 
 const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [index, setIndex] = useState(0);

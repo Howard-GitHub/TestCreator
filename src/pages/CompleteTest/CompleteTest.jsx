@@ -1,4 +1,4 @@
-import ReturnToDashboardButton from '../components/ReturnToDashboardButton/ReturnToDashboardButton';
+import ReturnToDashboardButton from '../../components/ReturnToDashboardButton/ReturnToDashboardButton';
 import './CompleteTest.css';
 
 const CompleteTest = ({numOfProblems, numOfCorrect, setNumOfCorrect}) => {

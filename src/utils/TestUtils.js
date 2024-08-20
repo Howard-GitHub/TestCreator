@@ -40,6 +40,7 @@ export const handleClickChoice = (event, choiceRef, selectedChoiceRef, setSelect
     }
 }
 
+// Returns user to the dashboard and removes items from the local storage that are not used in the general dashboard
 export const handleClickReturnToDashboard = (navigate, path, setNumOfCorrect) => {
     handleClickSwitchPage(navigate, path);
     localStorage.removeItem("index");

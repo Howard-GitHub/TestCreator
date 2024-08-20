@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import SectionContent from "../components/SectionContent/SectionContent";
-import SectionsDashboard from "../components/SectionsDashboard/SectionsDashboard";
+import SectionContent from "../../components/SectionContent/SectionContent";
+import SectionsDashboard from "../../components/SectionsDashboard/SectionsDashboard";
 import './GeneralDashboard.css';
-import useLocalStoredArray from "../hooks/useLocalStoredArray";
+import useLocalStoredArray from "../../hooks/useLocalStoredArray";
 
 const GeneralDashboard = ({setArrayOfProblems, sectionId, setSectionId, sectionIsSelected, setSectionIsSelected, selectedSectionRef, setSelectedSectionRef}) => {
     const [arrayOfSections, setArrayOfSections] = useState(null);
