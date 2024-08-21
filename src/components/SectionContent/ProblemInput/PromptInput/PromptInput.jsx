@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import useLocalStoredText from '../../../../hooks/useLocalStoredText';
 import './PromptInput.css';
+import { handleKeyDownEnter } from '../../../../utils/SectionUtils';
 
 const PromptInput = ({problemInputId}) => {
     const [promptInput, setPromptInput] = useState("");
@@ -12,6 +13,7 @@ const PromptInput = ({problemInputId}) => {
                 className="prompt-input"
                 value={promptInput}
                 onChange={handleChangeTextarea}
+                onKeyDown={(event) => handleKeyDownEnter(event)}
             />
         </div>
     );

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './AnswerInput.css';
 import useLocalStoredText from '../../../../hooks/useLocalStoredText';
+import { handleKeyDownEnter } from '../../../../utils/SectionUtils';
 
 const AnswerInput = ({problemInputId}) => {
     const [answerInput, setAnswerInput] = useState("");
@@ -12,6 +13,7 @@ const AnswerInput = ({problemInputId}) => {
                 className="answer-input"
                 value={answerInput}
                 onChange={handleChangeTextarea}
+                onKeyDown={(event) => handleKeyDownEnter(event)}
             />
         </div>
     );

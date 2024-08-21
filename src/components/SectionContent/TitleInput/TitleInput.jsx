@@ -1,5 +1,6 @@
 import './TitleInput.css';
 import useLocalStoredText from '../../../hooks/useLocalStoredText';
+import {handleKeyDownEnter} from '../../../utils/SectionUtils';
 
 const TitleInput = ({sectionId, sectionTitle, setSectionTitle}) => {
 
@@ -11,6 +12,7 @@ const TitleInput = ({sectionId, sectionTitle, setSectionTitle}) => {
                 className="title-input"
                 value={sectionTitle}
                 onChange={handleChangeTextarea}
+                onKeyDown={(event) => handleKeyDownEnter(event)}
             />
         </div>
     );
