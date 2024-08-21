@@ -13,7 +13,6 @@ const useLocalStoredText = (id, type, text, setText) => {
     useEffect(() => {
         const localKey = type + id;
         const locallyStoredText = localStorage.getItem(localKey);
-
         if (locallyStoredText) {
             setText(locallyStoredText);
             numTimesRun = numTimesRun + 1;
@@ -28,6 +27,7 @@ const useLocalStoredText = (id, type, text, setText) => {
     useEffect(() => {
         const localKey = type + id 
         localStorage.setItem(localKey, text);
+        console.log("use", localKey);
     }, [text])
 
     // Updates the value of the argument passed

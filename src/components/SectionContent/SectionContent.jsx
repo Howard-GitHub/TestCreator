@@ -12,6 +12,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                         setSelectedSectionRef, setArrayOfProblems}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [notEnoughProblems, setNotEnoughProblems] = useState(false);
     const errorMessageTabRef = useRef(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
 
@@ -40,6 +41,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                         arrayOfProblems={arrayOfProblemInputs}
                         setArrayOfProblems={setArrayOfProblems}
                         setShowErrorMessage={setShowErrorMessage}
+                        setNotEnoughProblems={setNotEnoughProblems}
                     />
                     <RemoveButton
                         type={"section"}
@@ -78,6 +80,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
             {(showErrorMessage) && (
                 <ErrorMessageTab
                     errorMessageTabRef={errorMessageTabRef}
+                    notEnoughProblems={notEnoughProblems}
                 />
             )}
         </div>

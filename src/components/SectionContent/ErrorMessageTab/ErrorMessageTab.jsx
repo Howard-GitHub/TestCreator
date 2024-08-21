@@ -1,6 +1,6 @@
 import './ErrorMessageTab.css';
 
-const ErrorMessageTab = ({errorMessageTabRef}) => {
+const ErrorMessageTab = ({errorMessageTabRef, notEnoughProblems}) => {
     return (  
         <div className="error-message-tab-container">
             <div 
@@ -11,7 +11,11 @@ const ErrorMessageTab = ({errorMessageTabRef}) => {
                 }}
             >
                 <label className="error-message-tab__text">
-                    You Must Have 6 Sets to Test
+                    {(notEnoughProblems) ? (
+                        "You Must Have At Least 6 Sets to Test"
+                    ) : (
+                        "Every Input Area Must Have Input"
+                    )}
                 </label>
             </div>
         </div>

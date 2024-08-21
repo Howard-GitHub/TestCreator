@@ -11,10 +11,30 @@ export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, 
     setSelectedSectionRef(newSelectedSectionRef);
 }
 
+const noNullValues = (arrayOfProblems) => {
+    for (let index = 0; index < arrayOfProblems.length; index++) {
+        let currentId = arrayOfProblems[index].id;
+        let currentAnswerLocalKey = "answer" + currentId;
+        let currentPromptLocalKey = "prompt" + currentId;
+        let locallyStoredAnswer = localStorage.getItem(currentAnswerLocalKey);
+        let locallyStoredPrompt = localStorage.getItem(currentPromptLocalKey);
+        if ((locallyStoredAnswer === null) || (locallyStoredAnswer === "") || (locallyStoredPrompt === null) || (locallyStoredPrompt === "")) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 // Transitions user to the test page and randomizes the questions asked
-export const handleClickTest = (setShowErrorMessage, arrayOfProblems, setArrayOfProblems, navigate, path) => {
+export const handleClickTest = (setNotEnoughProblems, setShowErrorMessage, arrayOfProblems, setArrayOfProblems, navigate, path) => {
     if (arrayOfProblems.length < 6) {
         setShowErrorMessage(true);
+        setNotEnoughProblems(true)
+    }
+    else if (!(noNullValues(arrayOfProblems))) {
+        setShowErrorMessage(true);
+        setNotEnoughProblems(false);
     }
     else {
         handleShuffle(arrayOfProblems, setArrayOfProblems);
