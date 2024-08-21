@@ -12,9 +12,14 @@ export const handleClickEnterSection = (id, setSectionId, setSectionIsSelected, 
 }
 
 // Transitions user to the test page and randomizes the questions asked
-export const handleClickTest = (arrayOfProblems, setArrayOfProblems, navigate, path) => {
-    handleShuffle(arrayOfProblems, setArrayOfProblems);
-    handleClickSwitchPage(navigate, path);
+export const handleClickTest = (setShowErrorMessage, arrayOfProblems, setArrayOfProblems, navigate, path) => {
+    if (arrayOfProblems.length < 6) {
+        setShowErrorMessage(true);
+    }
+    else {
+        handleShuffle(arrayOfProblems, setArrayOfProblems);
+        handleClickSwitchPage(navigate, path);
+    }
 }
 
 // Shuffles the elements in an array

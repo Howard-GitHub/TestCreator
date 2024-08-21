@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import ProblemInput from './ProblemInput/ProblemInput';
 import './SectionContent.css'
 import TitleInput from './TitleInput/TitleInput';
@@ -6,11 +6,26 @@ import AddButton from '../AddButton/AddButton';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 import RemoveButton from '../RemoveButton/RemoveButton';
 import TestButton from './TestButton/TestButton';
+import ErrorMessageTab from './ErrorMessageTab/ErrorMessageTab';
 
 const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle, 
                         setSelectedSectionRef, setArrayOfProblems}) => {
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const errorMessageTabRef = useRef(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
+
+    useEffect(() => {
+        if (showErrorMessage && errorMessageTabRef.current) {
+            const errorMessageTimer = setTimeout(() => {
+                setShowErrorMessage(false);
+            }, 4500);
+
+            return () => {
+                clearTimeout(errorMessageTimer);
+            } 
+        }
+    }, [showErrorMessage])
 
     return (  
         <div className="section-content-container">
@@ -24,6 +39,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                     <TestButton
                         arrayOfProblems={arrayOfProblemInputs}
                         setArrayOfProblems={setArrayOfProblems}
+                        setShowErrorMessage={setShowErrorMessage}
                     />
                     <RemoveButton
                         type={"section"}
@@ -59,6 +75,11 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                 </div>
             )}
             <div className="resize-line"/>
+            {(showErrorMessage) && (
+                <ErrorMessageTab
+                    errorMessageTabRef={errorMessageTabRef}
+                />
+            )}
         </div>
     );
 }
