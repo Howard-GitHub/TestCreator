@@ -6,16 +6,12 @@ import FinishButton from "../FinishButton/FinishButton";
 import useProblemVariables from "../../hooks/useProblemVariables";
 import TopBorder from "../TopBorder/TopBorder";
 import BottomBorder from "../BottomBorder/BottomBorder";
+import {handleChangeTestAnswerInput, handleKeyDownEnter} from "../../utils/TextareaUtils";
 
 const TypingProblem = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, isCorrect, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
                         numOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [userInput, setUserInput] = useState("");
     const {prompt, answer} = useProblemVariables(problemId);
-
-    // Updates the value of the argument passed
-    const handleChangeTextarea = (event) => {
-        setUserInput(event.target.value);
-    }
 
     return (  
         <div className="typing-question-container">
@@ -31,7 +27,8 @@ const TypingProblem = ({problemId, index, setIndex, checkButtonIsClicked, setChe
                 <textarea 
                     className="typing-question__answer-input"
                     value={userInput}
-                    onChange={handleChangeTextarea}
+                    onChange={(event) => handleChangeTestAnswerInput(event, setUserInput)}
+                    onKeyDown={handleKeyDownEnter}
                 />
                 <BottomBorder
                     isCorrect={isCorrect}

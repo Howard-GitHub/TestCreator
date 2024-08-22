@@ -42,14 +42,6 @@ export const handleClickTest = (setNotEnoughProblems, setShowErrorMessage, array
     }
 }
 
-// Prevents the user from going down one line when pressing enter
-export const handleKeyDownEnter = (event) => {
-    if (event.key === "Enter") {
-        event.preventDefault();
-    }
-}
-
-
 // Shuffles the elements in an array
 export const handleShuffle = (array, setArray) => {
     let firstRandomIndex;

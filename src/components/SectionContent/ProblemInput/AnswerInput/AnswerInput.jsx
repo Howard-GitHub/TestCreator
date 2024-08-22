@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './AnswerInput.css';
 import useLocalStoredText from '../../../../hooks/useLocalStoredText';
-import {handleKeyDownEnter} from '../../../../utils/SectionUtils';
+import {handleKeyDownEnter} from '../../../../utils/TextareaUtils';
 
 const AnswerInput = ({problemInputId}) => {
     const [answerInput, setAnswerInput] = useState("");

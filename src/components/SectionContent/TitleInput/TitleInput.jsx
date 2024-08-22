@@ -1,6 +1,6 @@
 import './TitleInput.css';
 import useLocalStoredText from '../../../hooks/useLocalStoredText';
-import {handleKeyDownEnter} from '../../../utils/SectionUtils';
+import {handleKeyDownEnter} from '../../../utils/TextareaUtils';
 
 const TitleInput = ({sectionId, sectionTitle, setSectionTitle}) => {
 
