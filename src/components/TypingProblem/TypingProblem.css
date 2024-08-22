@@ -1,4 +1,4 @@
-.fill-in-the-blank {
+.typing-question {
     position: relative;
     color: white;
     z-index: 0;
@@ -7,7 +7,7 @@
     transform: translate(-50%, 0%);
 }
 
-.fill-in-the-blank__prompt {
+.typing-question__prompt {
     position: relative;
     word-break: break-word;
     width: 100%;
@@ -15,11 +15,11 @@
     font-size: 30px;
 }
 
-.fill-in-the-blank__padding {
+.typing-question__padding {
     padding: 150px;
 }
 
-.fill-in-the-blank__answer-input {
+.typing-question__answer-input {
     position: relative;
     background-color: black;
     resize: none;

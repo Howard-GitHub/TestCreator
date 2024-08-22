@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import './Test.css';
-import FillInTheBlank from '../../components/FillInTheBlank/FillInTheBlank';
+import TypingProblem from '../../components/TypingProblem/TypingProblem';
 import ReturnToDashboardButton from '../../components/ReturnToDashboardButton/ReturnToDashboardButton';
 import NumCompletedProblems from '../../components/NumCompletedProblems/NumCompletedProblems';
 import MultipleChoice from '../../components/MultipleChoice/MultipleChoice';
@@ -12,7 +12,7 @@ const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrec
     const [isCorrect, setIsCorrect] = useState(null);
     const [checkButtonIsClicked, setCheckButtonIsClicked] = useState(false);
     const [numCompletedProblems, setNumCompletedProblems] = useState(0);
-    const [isFillInTheBlank, setIsFillInTheBlank] = useState(null);
+    const [isTypingProblem, setIsTypingProblem] = useState(null);
     const testFormatRef = useRef(null);
     const {} = useLocalStoredArray("test", arrayOfProblems, setArrayOfProblems);
 
@@ -58,10 +58,10 @@ const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrec
     useEffect(() => {
         let random = Math.floor(Math.random() * 2);
         if (random === 0) {
-            setIsFillInTheBlank(true);
+            setIsTypingProblem(true);
         }
         else {
-            setIsFillInTheBlank(false);
+            setIsTypingProblem(false);
         }
     }, [problem])
 
@@ -72,10 +72,10 @@ const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrec
                 <div 
                     ref={testFormatRef}
                     className="test__format">
-                    {(isFillInTheBlank !== null) && 
-                        (isFillInTheBlank) ? (
+                    {(isTypingProblem !== null) && 
+                        (isTypingProblem) ? (
                             ((problem !== null) && (arrayOfProblems !== null)) && (
-                            <FillInTheBlank
+                            <TypingProblem
                                 problemId={problem.id}
                                 index={index}
                                 setIndex={setIndex}

@@ -1,13 +1,13 @@
 import {useState} from "react";
-import './FillInTheBlank.css';
-import NextButton from '../../components/NextButton/NextButton';
-import CheckButton from '../../components/CheckButton/CheckButton';
-import FinishButton from "../../components/FinishButton/FinishButton";
+import './TypingProblem.css';
+import NextButton from '../NextButton/NextButton';
+import CheckButton from '../CheckButton/CheckButton';
+import FinishButton from "../FinishButton/FinishButton";
 import useProblemVariables from "../../hooks/useProblemVariables";
 import TopBorder from "../TopBorder/TopBorder";
 import BottomBorder from "../BottomBorder/BottomBorder";
 
-const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, isCorrect, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
+const TypingProblem = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, isCorrect, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
                         numOfProblems, numOfCorrect, setNumOfCorrect}) => {
     const [userInput, setUserInput] = useState("");
     const {prompt, answer} = useProblemVariables(problemId);
@@ -18,18 +18,18 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
     }
 
     return (  
-        <div className="fill-in-the-blank-container">
-            <div className="fill-in-the-blank">
+        <div className="typing-question-container">
+            <div className="typing-question">
                 <TopBorder
                     isCorrect={isCorrect}
                     checkButtonIsClicked={checkButtonIsClicked}
                 />
-                <label className="fill-in-the-blank__prompt">
+                <label className="typing-question__prompt">
                     {prompt}
                 </label>
-                <div className="fill-in-the-blank__padding"/>
+                <div className="typing-question__padding"/>
                 <textarea 
-                    className="fill-in-the-blank__answer-input"
+                    className="typing-question__answer-input"
                     value={userInput}
                     onChange={handleChangeTextarea}
                 />
@@ -66,4 +66,4 @@ const FillInTheBlank = ({problemId, index, setIndex, checkButtonIsClicked, setCh
     );
 }
  
-export default FillInTheBlank;
+export default TypingProblem;
