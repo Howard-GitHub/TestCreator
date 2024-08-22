@@ -44,13 +44,9 @@ function App() {
           <Route
             path="/test/complete"
             element={
-              (arrayOfProblems) && (
-                <CompleteTest
-                  numOfProblems={arrayOfProblems.length}
-                  numOfCorrect={numOfCorrect}
-                  setNumOfCorrect={setNumOfCorrect}
-                />
-              )
+              <CompleteTest
+                setNumOfCorrect={setNumOfCorrect}
+              />
             }
           />
         </Routes>
