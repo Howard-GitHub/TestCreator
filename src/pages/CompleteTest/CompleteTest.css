@@ -16,7 +16,7 @@
     height: 400px;
 }
 
-.complete-test__tab--percent {
+.complete-test__tab__percent {
     position: relative;
     color: white;
     font-size: 35px;
@@ -24,7 +24,7 @@
     padding-top: 30px;
 }
 
-.complete-test__tab--ratio {
+.complete-test__tab__ratio {
     position: relative;
     color: white;
     font-size: 35px;
