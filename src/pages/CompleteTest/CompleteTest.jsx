@@ -1,7 +1,7 @@
 import ReturnToDashboardButton from '../../components/ReturnToDashboardButton/ReturnToDashboardButton';
 import './CompleteTest.css';
 
-const CompleteTest = ({setNumOfCorrect}) => {
+const CompleteTest = ({setNumOfCorrect, setSectionId, setArrayOfProblems, setSectionIsSelected}) => {
     const locallyStoredIndex = localStorage.getItem("index");
     const locallyStoredNumCorrect = localStorage.getItem("numOfCorrect");
 
@@ -18,6 +18,9 @@ const CompleteTest = ({setNumOfCorrect}) => {
                     <ReturnToDashboardButton
                         type={"test-complete"}
                         setNumOfCorrect={setNumOfCorrect}
+                        setSectionId={setSectionId}
+                        setArrayOfProblems={setArrayOfProblems}
+                        setSectionIsSelected={setSectionIsSelected}
                     />
                 </div>
             </div>

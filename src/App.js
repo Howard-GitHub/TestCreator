@@ -48,6 +48,9 @@ function App() {
             element={
               <CompleteTest
                 setNumOfCorrect={setNumOfCorrect}
+                setSectionId={setSectionId}
+                setArrayOfProblems={setArrayOfProblems}
+                setSectionIsSelected={setSectionIsSelected}
               />
             }
           />

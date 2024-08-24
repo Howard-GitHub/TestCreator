@@ -83,6 +83,7 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
                         checkButtonIsClicked={checkButtonIsClicked}
+                        index={index}
                     />
                     <Choice
                         option={options[1]}
@@ -90,6 +91,7 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
                         checkButtonIsClicked={checkButtonIsClicked}
+                        index={index}
                     />
                     <Choice
                         option={options[2]}
@@ -97,6 +99,7 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
                         checkButtonIsClicked={checkButtonIsClicked}
+                        index={index}
                     />
                     <Choice
                         option={options[3]}
@@ -104,6 +107,7 @@ const MultipleChoice = ({problemId, index, setIndex, checkButtonIsClicked, setCh
                         setSelectedChoiceRef={setSelectedChoiceRef}
                         setChosenAnswer={setChosenAnswer}
                         checkButtonIsClicked={checkButtonIsClicked}
+                        index={index}
                     />
                 </div>
                 <BottomBorder
