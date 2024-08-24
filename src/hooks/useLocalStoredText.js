@@ -27,7 +27,6 @@ const useLocalStoredText = (id, type, text, setText) => {
     useEffect(() => {
         const localKey = type + id 
         localStorage.setItem(localKey, text);
-        console.log("use", localKey);
     }, [text])
 
     // Updates the value of the argument passed

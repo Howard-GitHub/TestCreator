@@ -38,6 +38,8 @@ function App() {
                 setArrayOfProblems={setArrayOfProblems}
                 numOfCorrect={numOfCorrect}
                 setNumOfCorrect={setNumOfCorrect}
+                setSectionId={setSectionId}
+                setSectionIsSelected={setSectionIsSelected}
               />
             }
           />

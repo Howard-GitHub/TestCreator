@@ -6,7 +6,7 @@ import NumCompletedProblems from '../../components/NumCompletedProblems/NumCompl
 import MultipleChoice from '../../components/MultipleChoice/MultipleChoice';
 import useLocalStoredArray from '../../hooks/useLocalStoredArray';
 
-const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrect}) => {
+const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrect, setSectionId, setSectionIsSelected}) => {
     const [index, setIndex] = useState(0);
     const [problem, setProblem] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
@@ -113,6 +113,9 @@ const Test = ({arrayOfProblems, setArrayOfProblems, numOfCorrect, setNumOfCorrec
                 <ReturnToDashboardButton
                     type={"test"}
                     setNumOfCorrect={setNumOfCorrect}
+                    setSectionId={setSectionId}
+                    setArrayOfProblems={setArrayOfProblems}
+                    setSectionIsSelected={setSectionIsSelected}
                 />
                 {(arrayOfProblems !== null) && (
                     <NumCompletedProblems

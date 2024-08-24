@@ -27,7 +27,7 @@ const noNullValues = (arrayOfProblems) => {
 }
 
 // Transitions user to the test page and randomizes the questions asked
-export const handleClickTest = (setNotEnoughProblems, setShowErrorMessage, arrayOfProblems, setArrayOfProblems, navigate, path) => {
+export const handleClickTest = (setNotEnoughProblems, setShowErrorMessage, arrayOfProblems, setArrayOfProblems, sectionId, navigate, path) => {
     if (arrayOfProblems.length < 6) {
         setShowErrorMessage(true);
         setNotEnoughProblems(true)
@@ -39,6 +39,7 @@ export const handleClickTest = (setNotEnoughProblems, setShowErrorMessage, array
     else {
         handleShuffle(arrayOfProblems, setArrayOfProblems);
         handleClickSwitchPage(navigate, path);
+        localStorage.setItem("section", sectionId);
     }
 }
 

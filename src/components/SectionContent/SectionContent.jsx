@@ -42,6 +42,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                         setArrayOfProblems={setArrayOfProblems}
                         setShowErrorMessage={setShowErrorMessage}
                         setNotEnoughProblems={setNotEnoughProblems}
+                        sectionId={sectionId}
                     />
                     <RemoveButton
                         type={"section"}

@@ -29,6 +29,7 @@ const Section = ({id, sectionId, setSectionId, setSectionIsSelected, sectionTitl
         if (id === sectionId) {
             sectionRef.current.style.backgroundColor = 'darkslategray';
             setSelectedSectionRef(sectionRef);
+            localStorage.setItem("section", JSON.stringify(id));
         }
     }, [])
 

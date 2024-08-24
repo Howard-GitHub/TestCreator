@@ -41,12 +41,16 @@ export const handleClickChoice = (event, choiceRef, selectedChoiceRef, setSelect
 }
 
 // Returns user to the dashboard and removes items from the local storage that are not used in the general dashboard
-export const handleClickReturnToDashboard = (navigate, path, setNumOfCorrect) => {
+export const handleClickReturnToDashboard = (navigate, path, setNumOfCorrect, setSectionId, setArrayOfProblems, setSectionIsSelected) => {
+    const locallyStoredSectionId = localStorage.getItem("section");
+    const locallyStoredSectionContent = localStorage.getItem("test");
     handleClickSwitchPage(navigate, path);
     localStorage.removeItem("index");
     localStorage.removeItem("numOfCompleted");
     localStorage.removeItem("numOfCorrect");
     localStorage.removeItem("checkIsClicked");
-    localStorage.removeItem("test");
     setNumOfCorrect(0);
+    setSectionId(locallyStoredSectionId);
+    setArrayOfProblems(JSON.parse(locallyStoredSectionContent));
+    setSectionIsSelected(true);
 }
