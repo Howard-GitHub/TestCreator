@@ -77,7 +77,7 @@ const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected,
                     Choose a Section
                 </div>
             )}
-            <div className="resize-line"/>
+            <div className="divider"/>
             {(showErrorMessage) && (
                 <ErrorMessageTab
                     errorMessageTabRef={errorMessageTabRef}
