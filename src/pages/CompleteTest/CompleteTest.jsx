@@ -10,7 +10,7 @@ const CompleteTest = ({setNumOfCorrect, setSectionId, setArrayOfProblems, setSec
             <div className="complete-test">
                 <div className="complete-test__tab">
                     <div className="complete-test__tab__percent">
-                        Percent: {(JSON.parse(locallyStoredNumCorrect) / (JSON.parse(locallyStoredIndex) + 1)).toFixed(4) * 100} %
+                        Percent: {((JSON.parse(locallyStoredNumCorrect) / (JSON.parse(locallyStoredIndex) + 1)) * 100).toFixed(1)} %
                     </div>
                     <div className="complete-test__tab__ratio">
                         Ratio: {JSON.parse(locallyStoredNumCorrect)} / {(JSON.parse(locallyStoredIndex) + 1)}
