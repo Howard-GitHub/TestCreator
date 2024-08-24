@@ -3,6 +3,7 @@ import './ReturnToDashboardButton.css';
 import {handleClickReturnToDashboard} from '../../utils/TestUtils';
 
 const ReturnToDashboardButton = ({type, setNumOfCorrect, setSectionId, setArrayOfProblems, setSectionIsSelected}) => {
+    
     const navigate = useNavigate();
 
     return (  

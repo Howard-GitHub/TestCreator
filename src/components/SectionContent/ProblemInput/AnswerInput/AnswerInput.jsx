@@ -4,6 +4,7 @@ import useLocalStoredText from '../../../../hooks/useLocalStoredText';
 import {handleKeyDownEnter} from '../../../../utils/TextareaUtils';
 
 const AnswerInput = ({problemInputId}) => {
+    
     const [answerInput, setAnswerInput] = useState("");
     const {handleChangeTextarea} = useLocalStoredText(problemInputId, "answer", answerInput, setAnswerInput);
 

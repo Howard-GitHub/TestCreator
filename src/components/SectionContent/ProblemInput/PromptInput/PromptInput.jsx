@@ -4,6 +4,7 @@ import './PromptInput.css';
 import {handleKeyDownEnter} from '../../../../utils/TextareaUtils';
 
 const PromptInput = ({problemInputId}) => {
+    
     const [promptInput, setPromptInput] = useState("");
     const {handleChangeTextarea} = useLocalStoredText(problemInputId, "prompt", promptInput, setPromptInput);
 

@@ -10,6 +10,7 @@ import {handleChangeTestAnswerInput, handleKeyDownEnter} from "../../utils/Texta
 
 const TypingProblem = ({problemId, index, setIndex, checkButtonIsClicked, setCheckButtonIsClicked, isCorrect, setIsCorrect, numCompletedProblems, setNumCompletedProblems, 
                         numOfProblems, numOfCorrect, setNumOfCorrect}) => {
+    
     const [userInput, setUserInput] = useState("");
     const {prompt, answer} = useProblemVariables(problemId);
 

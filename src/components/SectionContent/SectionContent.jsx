@@ -10,12 +10,14 @@ import ErrorMessageTab from './ErrorMessageTab/ErrorMessageTab';
 
 const SectionContent = ({sectionId, handleClickRemoveSection, sectionIsSelected, setSectionIsSelected, sectionTitle, setSectionTitle, 
                         setSelectedSectionRef, setArrayOfProblems}) => {
+    
     const [arrayOfProblemInputs, setArrayOfProblemInputs] = useState(null);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [notEnoughProblems, setNotEnoughProblems] = useState(false);
     const errorMessageTabRef = useRef(null);
     const {handleClickAddItem, handleClickRemoveItem} = useLocalStoredArray(sectionId, arrayOfProblemInputs, setArrayOfProblemInputs);
 
+    // Sets time duration for the display of the section content error message
     useEffect(() => {
         if (showErrorMessage && errorMessageTabRef.current) {
             const errorMessageTimer = setTimeout(() => {
