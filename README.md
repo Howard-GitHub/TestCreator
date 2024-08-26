@@ -19,10 +19,10 @@ The test creator application gives the user the option to create sections in the
 
 ## DEMO
 
-### Demo of general dashboard
+### Demo of general dashboard:
 ![general dashboard demo gif](https://github.com/Howard-GitHub/TestCreator/blob/main/project/assets/generalDashboardDemo.gif)
 
-### Demo of creating a test and interacting with it
+### Demo of creating a test and interacting with it:
 ![test demo gif](https://github.com/Howard-GitHub/TestCreator/blob/main/project/assets/TestDemo.gif)
 
 
